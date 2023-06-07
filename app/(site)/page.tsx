@@ -1,9 +1,15 @@
+import { twMerge } from "tailwind-merge";
+
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
 export default function Home() {
   return (
-    <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
+    <div
+      className={twMerge(
+        "bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto"
+      )}
+    >
       <Header>
         <div className="mb-2">
           <h1 className="text-white text-3xl font-semibold">Welcome back</h1>

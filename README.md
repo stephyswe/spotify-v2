@@ -1,3 +1,99 @@
+README
+
+#2 Supabase setup
+
+##2.1 Create a new Supabase project
+https://app.supabase.com/sign-in
+
+> New project
+```
+Project name: next-spotify
+database password: __
+Region: Germany (Frankfurt)
+(Create new project)
+```
+
+```
+NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY to .env.local
+```
+##2.2 Create tables
+SQL - Stripe Subscriptions template - Run
+stripe.sql
+
+
+Table editor - New table - songs
+songs.sql
+
+##2.3 Edit songs table
+> Enable read access for all users
+
+```
+No activate RSL policies
+New Policy - Get started quickly - Use this template - Review - Save Policy
+```
+
+> Enable insert access for authenticated users only
+
+```
+New Policy - Get started quickly -
+Enable insert access for authenticated users only - Use this template - Review - Save Policy
+```
+
+Table Editor - Songs - validate 2 active RSL policies
+
+##2.4 Create liked_songs (ManyToMany) table
+
+```
+Table editor - New table - liked_songs
+
+uncheck id - primary key
+change to user_id - click edit fk relation
+find users table - id
+on delete - cascade
+
+create song_id - click edit fk relation
+find songs table - id
+on delete - cascade
+
+check user_id to primary key
+check song_id to primary key
+
+Save
+```
+
+##2.5 Add 2 policies as in songs table + 1 policy
+
+> Enable delete access for users based on their user ID
+
+```
+New Policy - Get started quickly -
+Enable delete access for users based on their user ID - Use this template - Review - Save Policy
+```
+
+##2.6 Create Songs & images bucket
+
+```
+Storage - New bucket - name songs - public bucket - Additional configuration - MIME Types - audio/mpeg -
+Save
+
+New bucket - name images - public bucket - Save
+```
+
+##2.7 Edit policy for songs and images to full access
+
+```
+Storage - Policies (songs) - new policy - for full customization
+
+policy name: allow all
+allowed operation: (all)
+Review - Save Policy
+
+(same for images)
+```
+
+---
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
