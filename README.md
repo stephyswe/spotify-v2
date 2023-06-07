@@ -91,6 +91,25 @@ Review - Save Policy
 (same for images)
 ```
 
+#3 Supabase Types
+
+URL:
+https://supabase.com/docs/guides/api/rest/generating-types
+
+> generate types_db.ts
+
+```
+npm i supabase@">=1.8.1" --save-dev
+https://app.supabase.com/account/tokens
+WWW - Generate new token - name: spotify - copy token
+npx supabase login - add token
+Finished supabase login.
+WWW - https://app.supabase.com/project - spotify - copy /ref_id
+npx supabase gen types typescript --project-id "$PROJECT_REF" --schema public > types_db.ts
+```
+
+
+
 ---
 
 
