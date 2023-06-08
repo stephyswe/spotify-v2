@@ -108,10 +108,14 @@ WWW - https://app.supabase.com/project - spotify - copy /ref_id
 npx supabase gen types typescript --project-id "$PROJECT_REF" --schema public > types_db.ts
 ```
 
-
+#4 Providers for auth and supabase
+```
+types.ts
+Supbase-, UserProvider
+useUser - subscription & user
+```
 
 ---
-
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
