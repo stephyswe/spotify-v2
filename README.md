@@ -115,6 +115,21 @@ Supbase-, UserProvider
 useUser - subscription & user
 ```
 
+#5 Authentication modal and functionality
+
+```
+SignIn validation:
+user create in supabase,
+user confirm email,
+on confirmation close modal
+
+---
+Supabase
+- Authentication - Email visible
+- Table Editor - Users - User visible
+- Authentication - Providers - Github - Enable - ID/Secret - Save
+```
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
