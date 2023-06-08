@@ -130,6 +130,13 @@ Supabase
 - Authentication - Providers - Github - Enable - ID/Secret - Save
 ```
 
+#6 Upload modal and functionality
+Add a song
+
+Supabase:
+Table Editor - Song - one row inserted
+Storage - song & image bucket
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
