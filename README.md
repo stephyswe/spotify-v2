@@ -111,7 +111,7 @@ npx supabase gen types typescript --project-id "$PROJECT_REF" --schema public > 
 #4 Providers for auth and supabase
 ```
 types.ts
-Supbase-, UserProvider
+Supabase-, UserProvider
 useUser - subscription & user
 ```
 
@@ -155,6 +155,47 @@ song! = if song can be undefined
 
 PlayerContent use key to destroy element.
 As the song does not support Dynamic and modular URL changes
+
+#10 Stripe integration
+
+Test of error.tsx
+layout.tsx: throw new Error("Test")
+
+#Make stripe account
+- https://dashboard.stripe.com/test/dashboard
+- copy secret key to .env.local
+- copy publishable key to .env.local
+
+#Terminal 1 - Webhooks CLI
+- Download Stripe CLI
+- stripe login
+- stripe listen --forward-to localhost:3000/api/webhooks
+- copy webhook signing secret to .env.local
+- - do not close terminal
+
+#Terminal 2 - Test webhook
+- stripe trigger payment_intent.succeeded
+
+# Create a new product
+- Table Editor - Prices - should be empty
+- WWW Stripe - Products - Add product
+```
+name: Spotify Premium
+price: $9.00
+recurring
+monthly
+Save
+```
+
+-- Terminal 1 - should indicate POST & product.created
+
+- https://dashboard.stripe.com/test/events - check if product created
+
+- Table Editor - Prices - should be 1 row
+- Table Editor - Products - should be 1 row
+
+
+
 
 ---
 
