@@ -139,6 +139,23 @@ Storage - song & image bucket
 
 #7 Songs fetching and list display
 
+#8 Favorites functionality
+
+#9 Player functionality
+
+```
+Correct way
+`const { supabaseClient } = useSessionContext();`
+instead of
+`const supabaseClient = useSupabaseClient();`
+for authentication purposes
+```
+
+song! = if song can be undefined
+
+PlayerContent use key to destroy element.
+As the song does not support Dynamic and modular URL changes
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
