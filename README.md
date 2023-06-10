@@ -215,6 +215,18 @@ get error in console
 Blocked a frame with origin "http://localhost:3000" from accessing a cross-origin frame.
 """
 
+#12 Deploy to Vercel
+
+- Webhook
+"""
+Copy vercel URL
+go to stripe - webhooks
+- add endpoint
+- select events - all - add events
+- add endpoint
+- change STRIPE_WEBHOOK_SECRET
+"""
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
