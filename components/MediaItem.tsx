@@ -9,9 +9,10 @@ import { Song } from "@/types";
 interface MediaItemProps {
   data: Song;
   onClick?: (id: string) => void;
+  isText?: boolean;
 }
 
-const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
+const MediaItem: React.FC<MediaItemProps> = ({ data, onClick, isText }) => {
   const player = usePlayer();
   const imageUrl = useLoadImage(data);
 
@@ -53,10 +54,12 @@ const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
           className="object-cover"
         />
       </div>
-      <div className="flex flex-col gap-y-1 overflow-hidden">
-        <p className="text-white truncate">{data.title}</p>
-        <p className="text-neutral-400 text-sm truncate">By {data.author}</p>
-      </div>
+      {isText ? (
+        <div className="flex flex-col gap-y-1 overflow-hidden">
+          <p className="text-white truncate">{data.title}</p>
+          <p className="text-neutral-400 text-sm truncate">By {data.author}</p>
+        </div>
+      ) : null}
     </div>
   );
 };

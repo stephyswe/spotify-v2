@@ -7,6 +7,7 @@ interface SidebarItemProps {
   label: string;
   active?: boolean;
   href: string;
+  drawer?: boolean;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -14,6 +15,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   label,
   active,
   href,
+  drawer,
 }) => {
   return (
     <Link
@@ -37,7 +39,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       )}
     >
       <Icon size={26} />
-      <p className="truncate w-100">{label}</p>
+      {drawer ? <p className="truncate w-100">{label}</p> : null}
     </Link>
   );
 };
