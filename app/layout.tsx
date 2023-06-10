@@ -6,7 +6,7 @@ import Player from "@/components/Player";
 import Sidebar from "@/components/Sidebar";
 import ModalProvider from "@/providers/ModalProvider";
 import SupabaseProvider from "@/providers/SupabaseProvider";
-import ToasterProvider from "@/providers/ToastProvider";
+import ToasterProvider from "@/providers/ToasterProvider";
 import UserProvider from "@/providers/UserProvider";
 
 import "./globals.css";

@@ -13,8 +13,6 @@ import { Song } from "@/types";
 import LikeButton from "./LikeButton";
 import MediaItem from "./MediaItem";
 
-//import Slider from "./Slider";
-
 interface PlayerContentProps {
   song: Song;
   songUrl: string;

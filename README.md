@@ -162,11 +162,13 @@ Test of error.tsx
 layout.tsx: throw new Error("Test")
 
 #Make stripe account
+
 - https://dashboard.stripe.com/test/dashboard
 - copy secret key to .env.local
 - copy publishable key to .env.local
 
 #Terminal 1 - Webhooks CLI
+
 - Download Stripe CLI
 - stripe login
 - stripe listen --forward-to localhost:3000/api/webhooks
@@ -174,11 +176,14 @@ layout.tsx: throw new Error("Test")
 - - do not close terminal
 
 #Terminal 2 - Test webhook
+
 - stripe trigger payment_intent.succeeded
 
 # Create a new product
+
 - Table Editor - Prices - should be empty
 - WWW Stripe - Products - Add product
+
 ```
 name: Spotify Premium
 price: $9.00
@@ -200,9 +205,10 @@ Localhost - Subscribe to product - checkout in stripe
 Supabase - Table Editor - Customers/Subscription - should be 1 row
 
 - Create new account - that isn't subscribed
--- validate unsubscribed user cannot play or add songs
+  -- validate unsubscribed user cannot play or add songs
 
 # Customer portal in /account
+
 - warning: in /account cannot access customer portal
 - fix: activate test link in stripe, then it should work
 
@@ -218,14 +224,14 @@ Blocked a frame with origin "http://localhost:3000" from accessing a cross-origi
 #12 Deploy to Vercel
 
 - Webhook
-"""
-Copy vercel URL
-go to stripe - webhooks
+  """
+  Copy vercel URL
+  go to stripe - webhooks
 - add endpoint
 - select events - all - add events
 - add endpoint
 - change STRIPE_WEBHOOK_SECRET
-"""
+  """
 
 ---
 
