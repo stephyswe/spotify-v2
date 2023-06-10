@@ -3,12 +3,17 @@
 import { useEffect, useState } from "react";
 
 import AuthModal from "@/components/AuthModal";
+import SubscribeModal from "@/components/SubscribeModal";
 import UploadModal from "@/components/UploadModal";
+import { ProductWithPrice } from "@/types";
 
-const ModalProvider: React.FC = () => {
+interface ModalProviderProps {
+  products: ProductWithPrice[];
+}
+
+const ModalProvider: React.FC<ModalProviderProps> = ({ products }) => {
   const [isMounted, setIsMounted] = useState(false);
 
-  // This is a hack to prevent the "window is not defined" error
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -20,6 +25,7 @@ const ModalProvider: React.FC = () => {
   return (
     <>
       <AuthModal />
+      <SubscribeModal products={products} />
       <UploadModal />
     </>
   );

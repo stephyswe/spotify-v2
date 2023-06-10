@@ -9,9 +9,11 @@ import { HiHome } from "react-icons/hi";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { twMerge } from "tailwind-merge";
 
-import Button from "@/components/Button";
 import useAuthModal from "@/hooks/useAuthModal";
+import usePlayer from "@/hooks/usePlayer";
 import { useUser } from "@/hooks/useUser";
+
+import Button from "./Button";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -19,6 +21,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ children, className }) => {
+  const player = usePlayer();
   const router = useRouter();
   const authModal = useAuthModal();
 
@@ -27,13 +30,11 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
-    // TODO: reset any playing songs
+    player.reset();
     router.refresh();
 
     if (error) {
       toast.error(error.message);
-    } else {
-      toast.success("Logged out successfully");
     }
   };
 
@@ -122,7 +123,10 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
               <Button onClick={handleLogout} className="bg-white px-6 py-2">
                 Logout
               </Button>
-              <Button onClick={() => {}} className="bg-white">
+              <Button
+                onClick={() => router.push("/account")}
+                className="bg-white"
+              >
                 <FaUserAlt />
               </Button>
             </div>

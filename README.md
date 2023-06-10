@@ -194,8 +194,26 @@ Save
 - Table Editor - Prices - should be 1 row
 - Table Editor - Products - should be 1 row
 
+#11 Subscribe modal and account page
 
+Localhost - Subscribe to product - checkout in stripe
+Supabase - Table Editor - Customers/Subscription - should be 1 row
 
+- Create new account - that isn't subscribed
+-- validate unsubscribed user cannot play or add songs
+
+# Customer portal in /account
+- warning: in /account cannot access customer portal
+- fix: activate test link in stripe, then it should work
+
+"""
+You can’t create a portal session in test mode until you save your customer portal settings in test mode at https://dashboard.stripe.com/test/settings/billing/portal.',
+"""
+
+get error in console
+"""
+Blocked a frame with origin "http://localhost:3000" from accessing a cross-origin frame.
+"""
 
 ---
 
