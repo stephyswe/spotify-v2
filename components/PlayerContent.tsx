@@ -17,6 +17,8 @@ import MediaItem from "./MediaItem";
 interface PlayerContentProps {
   song: Song | undefined;
   songUrl: string;
+  setVolume: (volume: number) => void;
+  volume: number;
 }
 
 function formatTime(seconds: number) {
@@ -25,9 +27,13 @@ function formatTime(seconds: number) {
   return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
-const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
+const PlayerContent: React.FC<PlayerContentProps> = ({
+  song,
+  songUrl,
+  setVolume,
+  volume,
+}) => {
   const player = usePlayer();
-  const [volume, setVolume] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   //
