@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import useSound from "use-sound";
 
 import Slider from "@/components/Slider";
+import SliderTrack from "@/components/SliderTrack";
 import usePlayer from "@/hooks/usePlayer";
 import { Song } from "@/types";
 
@@ -14,14 +15,24 @@ import LikeButton from "./LikeButton";
 import MediaItem from "./MediaItem";
 
 interface PlayerContentProps {
-  song: Song;
+  song: Song | undefined;
   songUrl: string;
+}
+
+function formatTime(seconds: number) {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
 const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   const player = usePlayer();
   const [volume, setVolume] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  //
+  const [isDragging, setIsDragging] = useState(false);
+  const [draggingPosition, setDraggingPosition] = useState(0);
 
   const Icon = isPlaying ? BsPauseFill : BsPlayFill;
   const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
@@ -75,6 +86,32 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
     };
   }, [sound]);
 
+  // Create a reference for the interval id
+  const intervalId = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    // Only start the interval if the sound is loaded and is playing
+    if (sound && isPlaying) {
+      intervalId.current = setInterval(() => {
+        if (!isDragging) {
+          setProgress(sound.seek() as number);
+        }
+      }, 1000);
+    } else {
+      // If the sound is not playing, clear the interval
+      if (intervalId.current) {
+        clearInterval(intervalId.current);
+      }
+    }
+
+    // Clean up function to clear the interval when the component unmounts
+    return () => {
+      if (intervalId.current) {
+        clearInterval(intervalId.current);
+      }
+    };
+  }, [sound, isPlaying, isDragging]);
+
   const handlePlay = () => {
     if (!isPlaying) {
       play();
@@ -91,13 +128,34 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
     }
   };
 
+  const handleSeekChange = () => {
+    if (!sound) {
+      return;
+    }
+
+    setIsDragging(false);
+    sound.seek(draggingPosition);
+  };
+
+  // Update handleSliderChange function
+  const handleSliderChange = (value: any) => {
+    if (!sound) {
+      return;
+    }
+    setDraggingPosition(value);
+    setIsDragging(true);
+    setProgress(value);
+  };
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 h-full">
       <div className="flex w-full justify-start">
-        <div className="flex items-center gap-x-4">
-          <MediaItem data={song} />
-          <LikeButton songId={song.id} />
-        </div>
+        {song ? (
+          <div className="flex items-center gap-x-4">
+            <MediaItem data={song} />
+            <LikeButton songId={song.id} />
+          </div>
+        ) : null}
       </div>
 
       <div
@@ -133,26 +191,38 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
             hidden
             h-full
             md:flex
+            flex-col
+            justify-center
+            items-center
+            w-full
+            max-w-[722px]
+            gap-x-4
+            "
+      >
+        <div
+          className="
+            h-full
+            md:flex
             justify-center
             items-center
             w-full
             max-w-[722px]
             gap-x-6
           "
-      >
-        <AiFillStepBackward
-          onClick={onPlayPrevious}
-          size={30}
-          className="
-              text-neutral-400
+        >
+          <AiFillStepBackward
+            onClick={onPlayPrevious}
+            size={30}
+            className="
+            text-neutral-400
               cursor-pointer
-              hover:text-white
+            hover:text-white
               transition
             "
-        />
-        <div
-          onClick={handlePlay}
-          className="
+          />
+          <div
+            onClick={handlePlay}
+            className="
               flex
               items-center
               justify-center
@@ -163,19 +233,35 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
               p-1
               cursor-pointer
             "
-        >
-          <Icon size={30} className="text-black" />
-        </div>
-        <AiFillStepForward
-          onClick={onPlayNext}
-          size={30}
-          className="
+          >
+            <Icon size={30} className="text-black" />
+          </div>
+          <AiFillStepForward
+            onClick={onPlayNext}
+            size={30}
+            className="
               text-neutral-400
               cursor-pointer
               hover:text-white
               transition
             "
-        />
+          />
+        </div>
+        <div className="w-full md:flex justify-center items-center gap-x-2">
+          <span className="text-white text-xs w-6">
+            {sound ? formatTime(progress) : "-:--"}
+          </span>
+          <SliderTrack
+            value={progress}
+            onChange={(value) => handleSliderChange(value)}
+            onSeek={handleSeekChange}
+            max={sound ? Math.floor(sound.duration()) : 0}
+            setIsDragging={setIsDragging}
+          />
+          <span className="text-white text-xs w-6">
+            {sound ? formatTime(Math.floor(sound.duration())) : "-:--"}
+          </span>
+        </div>
       </div>
 
       <div className="hidden md:flex w-full justify-end pr-2">

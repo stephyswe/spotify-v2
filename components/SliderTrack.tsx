@@ -6,13 +6,16 @@ interface SlideProps {
   value?: number;
   onChange?: (value: number) => void;
   max?: number;
+  setIsDragging: (value: boolean) => void;
+  onSeek: () => void;
 }
 
-const Slider: React.FC<SlideProps> = ({ value = 1, onChange, max = 1 }) => {
-  const handleChange = (newValue: number[]) => {
-    onChange?.(newValue[0]);
-  };
-
+const SliderTrack: React.FC<SlideProps> = ({
+  value = 1,
+  onChange,
+  max = 1,
+  onSeek,
+}) => {
   return (
     <RadixSlider.Root
       className="
@@ -27,9 +30,10 @@ const Slider: React.FC<SlideProps> = ({ value = 1, onChange, max = 1 }) => {
       "
       defaultValue={[1]}
       value={[value]}
-      onValueChange={handleChange}
+      onValueChange={(value) => onChange?.(value[0])}
+      onPointerUp={onSeek}
       max={max}
-      step={0.1}
+      step={0.0001}
       aria-label="Volume"
     >
       <RadixSlider.Track
@@ -45,27 +49,28 @@ const Slider: React.FC<SlideProps> = ({ value = 1, onChange, max = 1 }) => {
           className="
             absolute
             bg-white
+            group-hover:bg-green-500
             rounded-full
             h-full
-            group-hover:bg-green-500
+            left-0
+            transition-width
           "
         />
       </RadixSlider.Track>
       <RadixSlider.Thumb
         className="
-          block
-          w-3
-          h-3
-          bg-transparent
-          group-hover:bg-white
-          rounded-full
-          cursor-pointer
-          border-none
-          focus:outline-none
-        "
+            block
+            w-3
+            h-3
+            bg-transparent
+            group-hover:bg-white
+            rounded-full
+            cursor-pointer
+            focus:outline-none
+          "
       />
     </RadixSlider.Root>
   );
 };
 
-export default Slider;
+export default SliderTrack;
