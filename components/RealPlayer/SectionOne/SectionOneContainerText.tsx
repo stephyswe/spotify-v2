@@ -10,6 +10,9 @@ export const SectionOneContainerText = ({ song }: any) => {
                 className="Type__TypeElement-sc-goli3j-0 ieTwfQ Q_174taY6n64ZGC3GsKj"
                 dir="auto"
                 data-encore-id="type"
+                style={{
+                  marginBottom: "1px",
+                }}
               >
                 <span draggable="true">
                   <a

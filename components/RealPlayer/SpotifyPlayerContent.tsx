@@ -51,7 +51,11 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
   volume,
 }) => {
   const player = usePlayer();
-  const [isPlaying, setIsPlaying] = useState(false);
+
+  // const values
+  const isPlaying = player.isPlaying;
+  const setIsPlaying = player.setIsPlaying;
+
   const [progress, setProgress] = useState(0);
   //
   const [isDragging, setIsDragging] = useState(false);
@@ -138,7 +142,9 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
   const handlePlay = () => {
     if (!isPlaying) {
       play();
+      // player.setIsPlaying(true);
     } else {
+      //player.setIsPlaying(false);
       pause();
     }
   };
