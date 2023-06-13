@@ -12,13 +12,15 @@ import SupabaseProvider from "@/providers/SupabaseProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
 import UserProvider from "@/providers/UserProvider";
 
+import "./globals.css";
+import "./css/home-v2.css";
 // spotify css
 import "./css/spotify-more.css";
 import "./css/spotify-sidebar.css";
 import "./css/spotify.css";
-import "./css/home-v2.css";
+import "./css/footer.css";
 //global css
-import "./globals.css";
+
 
 const font = Figtree({ subsets: ["latin"] });
 
