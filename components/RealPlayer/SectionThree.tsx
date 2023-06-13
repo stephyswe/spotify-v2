@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import Slider from "@/components/Slider";
+
 export const SectionThreeButton = () => (
   <button
     className="Button-sc-1dqy6lx-0 feKImU KAZD28usA1vPz5GVpm63 ZMXGDTbwxKJhbmEDZlYy Xmv2oAnTB85QE4sqbK00"
@@ -91,7 +93,19 @@ export const SectionThreeConnect = () => (
   </div>
 );
 
-export const SectionThreeVolume = () => {
+interface SectionThreeVolumeProps {
+  VolumeIcon: any;
+  volume: any;
+  setVolume: any;
+  toggleMute: any;
+}
+
+export const SectionThreeVolume: React.FC<SectionThreeVolumeProps> = ({
+  VolumeIcon,
+  volume,
+  setVolume,
+  toggleMute,
+}) => {
   const volumeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -108,11 +122,10 @@ export const SectionThreeVolume = () => {
       }
     }
   }, []);
-
   return (
     <div
       ref={volumeRef}
-      className="volume-bar ExuDUBJ7bk8vT6INnm9F"
+      className="volume-bar ExuDUBJ7bk8vT6INnm9F group"
       data-testid="volume-bar"
       dir="ltr"
     >
@@ -122,51 +135,47 @@ export const SectionThreeVolume = () => {
         aria-describedby="volume-icon"
         data-testid="volume-bar-toggle-mute-button"
         aria-expanded="false"
+        onClick={toggleMute}
       >
-        <svg
-          role="presentation"
-          height="16"
-          width="16"
-          aria-hidden="true"
-          aria-label="Volume high"
-          id="volume-icon"
-          viewBox="0 0 16 16"
-          data-encore-id="icon"
-          className="Svg-sc-ytk21e-0 haNxPq"
-        >
-          <path d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"></path>
-          <path d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"></path>
-        </svg>
+        <VolumeIcon />
       </button>
 
       <div className="volume-bar__slider-container">
-        <div className="p1ULRzPc4bD8eQ4T_wyp DFtdzavKSbEhwKYkPTa6">
-          <label className="hidden-visually">
-            Change volume
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.1"
-              value={1}
-              onChange={() => {}}
-            />
-          </label>
-
-          <div className="TywOcKZEqNynWecCiATc" data-testid="progress-bar">
-            <div
-              className="NoOAOv6U6vtqj_ybS1Cd"
-              data-testid="progress-bar-background"
-            >
-              <div className="w699O0LgQRghXyl3bs9u">
-                <div className="epWhU7hHGktzlO_dop6z"></div>
-              </div>
-              <div className="Vis45PPawTyED7Lt2_LI"></div>
-            </div>
-            <div style={{ width: "100%" }}></div>
-          </div>
+        <div className="DFtdzavKSbEhwKYkPTa6">
+          <Slider value={volume} onChange={(value) => setVolume(value)} />
         </div>
       </div>
     </div>
+  );
+};
+
+const VolumeSliderOld = () => {
+  return (
+    <>
+      <label className="hidden-visually">
+        Change volume
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value={1}
+          onChange={() => {}}
+        />
+      </label>
+
+      <div className="TywOcKZEqNynWecCiATc" data-testid="progress-bar">
+        <div
+          className="NoOAOv6U6vtqj_ybS1Cd"
+          data-testid="progress-bar-background"
+        >
+          <div className="w699O0LgQRghXyl3bs9u">
+            <div className="epWhU7hHGktzlO_dop6z"></div>
+          </div>
+          <div className="Vis45PPawTyED7Lt2_LI"></div>
+        </div>
+        <div style={{ width: "100%" }}></div>
+      </div>
+    </>
   );
 };

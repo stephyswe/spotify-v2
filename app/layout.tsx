@@ -10,9 +10,10 @@ import SupabaseProvider from "@/providers/SupabaseProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
 import UserProvider from "@/providers/UserProvider";
 
-import "./css/spotify-more.css";
 // spotify css
+import "./css/spotify-more.css";
 import "./css/spotify.css";
+//global css
 import "./globals.css";
 
 const font = Figtree({ subsets: ["latin"] });

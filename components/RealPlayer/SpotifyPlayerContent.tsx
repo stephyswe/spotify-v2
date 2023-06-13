@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { BsPauseFill, BsPlayFill } from "react-icons/bs";
-import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
+import { useEffect, useMemo, useRef, useState } from "react";
 import useSound from "use-sound";
 
 import { SectionOneButton } from "@/components/RealPlayer/SectionOne/SectionOneButton";
@@ -19,6 +17,12 @@ import {
   SeekControl,
 } from "@/components/RealPlayer/SectionTwo/PlayerBack";
 import { SectionTwoPlayerControls } from "@/components/RealPlayer/SectionTwo/SectionTwo";
+import {
+  SvgPlayVolumeFull,
+  SvgPlayVolumeLow,
+  SvgPlayVolumeMute,
+  SvgVolumeMedium,
+} from "@/components/icons/SvgPlaySettings";
 import {
   SvgPlayButton,
   SvgPlayNext,
@@ -54,7 +58,7 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
   const [draggingPosition, setDraggingPosition] = useState(0);
 
   const PlayIcon = isPlaying ? SvgPlayPause : SvgPlayButton;
-  const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
+  //const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
 
   const onPlayNext = () => {
     if (player.ids.length === 0) {
@@ -141,9 +145,11 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
 
   const toggleMute = () => {
     if (volume === 0) {
-      setVolume(1);
+      const volumeLocal = parseFloat(localStorage.getItem("volume") || "0.5");
+      setVolume(volumeLocal);
     } else {
       setVolume(0);
+      localStorage.setItem("volume", volume.toString());
     }
   };
 
@@ -165,6 +171,13 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
     setIsDragging(true);
     setProgress(value);
   };
+
+  const VolumeIcon = useMemo(() => {
+    if (volume === 0) return SvgPlayVolumeMute;
+    if (volume > 0 && volume < 0.33) return SvgPlayVolumeLow;
+    if (volume >= 0.33 && volume < 0.66) return SvgVolumeMedium;
+    return SvgPlayVolumeFull;
+  }, [volume]);
 
   return (
     <div className="OCY4jHBlCVZEyGvtSv0J">
@@ -222,7 +235,12 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
           <SectionThreeButton />
           <SectionThreeGlueTarget />
           <SectionThreeConnect />
-          <SectionThreeVolume />
+          <SectionThreeVolume
+            VolumeIcon={VolumeIcon}
+            volume={volume}
+            setVolume={setVolume}
+            toggleMute={toggleMute}
+          />
         </div>
       </div>
     </div>
