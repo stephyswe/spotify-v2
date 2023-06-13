@@ -612,6 +612,17 @@ h1, h2, h3 {
     color: var(--text-base,#000000);
 }
 
+.gIkgYW {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    margin-block: 0px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    padding-block-end: 4px;
+    color: var(--text-base,#000000);
+}
+
 @media (min-width: 768px) {
     .ieTwfQ {
         font-size: 0.875rem;
