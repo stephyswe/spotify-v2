@@ -623,6 +623,11 @@ h1, h2, h3 {
     color: var(--text-base,#000000);
 }
 
+.i4nABk12gLqZuh9Jbdw1 {
+    overflow: hidden;
+    z-index: 1;
+}
+
 @media (min-width: 768px) {
     .ieTwfQ {
         font-size: 0.875rem;

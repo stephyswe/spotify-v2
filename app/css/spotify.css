@@ -16049,13 +16049,7 @@ html[dir=ltr] .LayoutResizer__inline-start .LayoutResizer__input {
     margin-top: -2px
 }
 
-.jtRqaoDIpIR6fEATUTyY {
-    isolation: isolate;
-    position: relative;
-    width: 100%;
-    will-change: height;
-    z-index: 2
-}
+
 
 .LROBF2WtGaVryVpVbSOu {
     border-radius: 4px;
@@ -16068,6 +16062,14 @@ html[dir=ltr] .LayoutResizer__inline-start .LayoutResizer__input {
     will-change: height;
     z-index: 2
 }
+
+/* .jtRqaoDIpIR6fEATUTyY {
+    isolation: isolate;
+    position: relative;
+    width: 100%;
+    will-change: height;
+    z-index: 2
+} */
 
 .FegbnTtU6poHbemMzmBP {
     height: 0

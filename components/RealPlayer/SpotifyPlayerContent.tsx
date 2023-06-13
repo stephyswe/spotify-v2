@@ -1,10 +1,10 @@
+import clsx from "clsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 import useSound from "use-sound";
 
 import { SectionOneButton } from "@/components/RealPlayer/SectionOne/SectionOneButton";
 import { SectionOneContainerText } from "@/components/RealPlayer/SectionOne/SectionOneContainerText";
 import { SectionOneSvgBox } from "@/components/RealPlayer/SectionOne/SectionOneSvgBox";
-import { SectionOneSvgButton } from "@/components/RealPlayer/SectionOne/SectionOneSvgButton";
 import {
   SectionThreeButton,
   SectionThreeConnect,
@@ -14,21 +14,17 @@ import {
 import {
   PlayBackDuration,
   PlayBackPosition,
-  SeekControl,
 } from "@/components/RealPlayer/SectionTwo/PlayerBack";
 import { SectionTwoPlayerControls } from "@/components/RealPlayer/SectionTwo/SectionTwoPlayerControls";
 import SliderTrack from "@/components/SliderTrack";
+import { SvgExpand } from "@/components/icons/SvgExpand";
 import {
   SvgPlayVolumeFull,
   SvgPlayVolumeLow,
   SvgPlayVolumeMute,
   SvgVolumeMedium,
 } from "@/components/icons/SvgPlaySettings";
-import {
-  SvgPlayButton,
-  SvgPlayNext,
-  SvgPlayPause,
-} from "@/components/icons/SvgPlayShuffle";
+import { SvgPlayButton, SvgPlayPause } from "@/components/icons/SvgPlayShuffle";
 import usePlayer from "@/hooks/usePlayer";
 import { Song } from "@/types";
 
@@ -54,7 +50,7 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
   const player = usePlayer();
 
   // const values
-  const { isPlaying, setIsPlaying } = player;
+  const { isPlaying, setIsPlaying, isPicture, setIsPicture } = player;
 
   const [progress, setProgress] = useState(0);
   //
@@ -189,6 +185,10 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
     return SvgPlayVolumeFull;
   }, [volume]);
 
+  const onPicture = () => {
+    setIsPicture(!isPicture);
+  };
+
   return (
     <div className="OCY4jHBlCVZEyGvtSv0J">
       <div className="OgkbKIVYE_mrNpYESylB">
@@ -196,17 +196,26 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
         {song ? (
           <div
             data-testid="now-playing-widget"
-            className="deomraqfhIAoSB3SgXpu"
+            className={clsx(
+              "deomraqfhIAoSB3SgXpu",
+              isPicture ? "bYHWD_eQ1jAh3sAKTHtr" : ""
+            )}
             role="contentinfo"
             aria-label="Now playing: Bara lite känslor by Felicia Takman"
           >
             <div
               data-testid="CoverSlotCollapsed__container"
               className="rVxzkDirgkuRPv5V1HYF IcyWfMS5VkeOhaI7OWIx"
-              aria-hidden="false"
+              aria-hidden={isPicture ? "true" : "false"}
             >
               <SectionOneSvgBox data={song} />
-              <SectionOneSvgButton />
+              <button
+                className="qWcH8e2laY9sYOuCsOAx"
+                aria-label="Expand"
+                onClick={onPicture}
+              >
+                <SvgExpand />
+              </button>
             </div>
             <SectionOneContainerText song={song} />
             <SectionOneButton />
