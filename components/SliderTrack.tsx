@@ -42,7 +42,7 @@ const SliderTrack: React.FC<SlideProps> = ({
           relative
           grow
           rounded-full
-          h-[3px]
+          h-[4px]
         "
       >
         <RadixSlider.Range
@@ -50,7 +50,7 @@ const SliderTrack: React.FC<SlideProps> = ({
             absolute
             bg-white
             group-hover:bg-green-500
-            rounded-full
+            rounded-md
             h-full
             left-0
             transition-width

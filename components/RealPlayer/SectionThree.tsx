@@ -4,7 +4,7 @@ import Slider from "@/components/Slider";
 
 export const SectionThreeButton = () => (
   <button
-    className="Button-sc-1dqy6lx-0 feKImU KAZD28usA1vPz5GVpm63 ZMXGDTbwxKJhbmEDZlYy Xmv2oAnTB85QE4sqbK00"
+    className="Button-sc-1dqy6lx-0 feKImU KAZD28usA1vPz5GVpm63 ZMXGDTbwxKJhbmEDZlYy Xmv2oAnTB85QE4sqbK00 p-0"
     data-testid="lyrics-button"
     data-active="false"
     aria-label="Lyrics"
@@ -67,7 +67,7 @@ export const SectionThreeGlueTarget = () => (
 );
 
 export const SectionThreeConnect = () => (
-  <div className="bkFQH4uasL3pXqN9eDSi">
+  <div className="bkFQH4uasL3pXqN9eDSi ml-2 mr-[-8px]">
     <div className="PrhIVExjBkmjHt6Ea4XE" aria-expanded="false">
       <div className="WFRr38dFOxh75JyzSTj5"></div>
       <button

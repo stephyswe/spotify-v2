@@ -98,7 +98,7 @@ export const SectionTwoPlayerControls: React.FC<
   return (
     <div
       ref={controlsRef}
-      className="player-controls__buttons player-controls__buttons--new-icons"
+      className="player-controls__buttons player-controls__buttons--new-icons mb-[9px]"
     >
       <div className="player-controls__left">
         <ButtonPlayShuffle />

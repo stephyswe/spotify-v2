@@ -17,6 +17,7 @@ import {
   SeekControl,
 } from "@/components/RealPlayer/SectionTwo/PlayerBack";
 import { SectionTwoPlayerControls } from "@/components/RealPlayer/SectionTwo/SectionTwo";
+import SliderTrack from "@/components/SliderTrack";
 import {
   SvgPlayVolumeFull,
   SvgPlayVolumeLow,
@@ -227,11 +228,16 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
           <div className="playback-bar">
             <PlayBackPosition />
             <div
-              className="p1ULRzPc4bD8eQ4T_wyp DFtdzavKSbEhwKYkPTa6"
+              className="p1ULRzPc4bD8eQ4T_wyp pt-[1px]"
               data-testid="playback-progressbar"
             >
-              <InvisibleSeekLabel />
-              <SeekControl />
+              <SliderTrack
+                value={progress}
+                onChange={(value) => handleSliderChange(value)}
+                onSeek={handleSeekChange}
+                max={sound ? Math.floor(sound.duration()) : 0}
+                setIsDragging={setIsDragging}
+              />
             </div>
             <PlayBackDuration />
           </div>
