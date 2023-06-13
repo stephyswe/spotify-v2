@@ -8,15 +8,10 @@ import {
   SvgPagesPlay,
   SvgPagesPlayPause,
 } from "@/components/icons/pages/SvgPlay";
+import { useGridResize } from "@/hooks/useGridSize";
 import useLoadImage from "@/hooks/useLoadImage";
 import useOnPlay from "@/hooks/useOnPlay";
 import usePlayer from "@/hooks/usePlayer";
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
 
 const Content = ({ songs }: any) => (
   <div
@@ -154,7 +149,7 @@ const SectionContent = ({ songs }: any) => {
     const handleResize = () => {
       if (ref.current) {
         const width = ref.current.getBoundingClientRect().width;
-        if (width <= 850) {
+        if (width <= 890) {
           setMinColWidth("270px");
           setItemHeight("64px");
           setColGap("24px");
@@ -193,6 +188,13 @@ const SectionContent = ({ songs }: any) => {
         >
           {songs.map((song: any) => (
             <>
+              <SectionFeatureItem
+                key={song.id}
+                onClick={(id: string) => togglePlay(song.id)}
+                data={song}
+                isActive={song.id === player.activeId}
+                isPlaying={song.id === player.activeId && player.isPlaying}
+              />
               <SectionFeatureItem
                 key={song.id}
                 onClick={(id: string) => togglePlay(song.id)}
@@ -298,75 +300,7 @@ const MadeForItem = () => (
 );
 
 const SectionMadeFor = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [columns, setColumns] = useState(6);
-  const [colWidth, setColWidth] = useState(201);
-  const [gridGap, setGridGap] = useState(24); // initial value is 24, adjust as per your need
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (ref.current) {
-        const gridGap = Number(
-          getComputedStyle(ref.current)
-            .getPropertyValue("--grid-gap")
-            .replace("px", "")
-        );
-        let columns = 6; // initial columns count is now 6
-        let minColWidth = 201;
-
-        // get the width of the grid container
-        const width = ref.current.getBoundingClientRect().width;
-
-        // calculate the width of one column
-        let colWidth = Math.floor((width - (columns - 1) * gridGap) / columns);
-
-        while (colWidth < 180 && columns > 2) {
-          columns--;
-          colWidth = Math.floor((width - (columns - 1) * gridGap) / columns);
-        }
-
-        if (columns === 3 && colWidth < 157) {
-          columns = 2;
-          colWidth = Math.floor((width - (columns - 1) * gridGap) / columns);
-        }
-
-        while (columns < 9) {
-          if (
-            (columns === 6 && colWidth > 213) ||
-            (columns === 7 && colWidth > 208) ||
-            (columns === 8 && colWidth > 204)
-          ) {
-            columns++;
-            colWidth = Math.floor((width - (columns - 1) * gridGap) / columns);
-          } else {
-            break;
-          }
-        }
-
-        // Update state values for column width and column count
-        setColumns(columns);
-        setColWidth(colWidth);
-
-        // Update grid gap if necessary
-        if (columns === 3) {
-          setGridGap(18);
-        } else if (columns === 2) {
-          setGridGap(12);
-        } else {
-          setGridGap(24);
-        }
-      }
-    };
-
-    // add event listener to the window resize event
-    window.addEventListener("resize", handleResize);
-
-    // initial call
-    handleResize();
-
-    // remove the event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const { ref, colWidth, columns, gridGap } = useGridResize();
 
   return (
     <section
