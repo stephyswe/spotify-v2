@@ -1,5 +1,7 @@
 "use client";
 
+import clsx from "clsx";
+
 import {
   SvgPagesPlay,
   SvgPagesPlayPause,
@@ -43,7 +45,9 @@ const SectionWelcome = () => (
   </div>
 );
 
-const SectionFeatureItem = ({ isPlaying, onClick }: any) => {
+const SectionFeatureItem = ({ isPlaying, onClick, data }: any) => {
+  const player = usePlayer();
+  const activeId = player.activeId;
   return (
     <div className="Z35BWOA10YGn5uc9YgAp">
       <div className="g3f_cI5usQX7ZOQyDtA9" draggable="true">
@@ -72,12 +76,17 @@ const SectionFeatureItem = ({ isPlaying, onClick }: any) => {
                   className="Type__TypeElement-sc-goli3j-0 bkjCej EzRmGRncgnv1zFgF4dqE"
                   data-encore-id="type"
                 >
-                  Kenny Chesney
+                  {data.author}
                 </p>
               </a>
             </div>
           </div>
-          <div className="Kcb74zm1aMqGfPxTwO5s">
+          <div
+            className={clsx(
+              "Kcb74zm1aMqGfPxTwO5s",
+              isPlaying ? "s9c9x_mJq197U2hBzGtV" : ""
+            )}
+          >
             <div className="PFgcCoJSWC3KjhZxHDYH">
               <button
                 onClick={onClick}
@@ -105,21 +114,20 @@ const SectionFeatureItem = ({ isPlaying, onClick }: any) => {
 };
 
 const SectionContent = ({ songs }: any) => {
-  const CONST_ID = "1";
-  const player = usePlayer();
-  const isPlaying = player.isPlaying;
   const onPlay = useOnPlay(songs);
 
-  const sound = player.sound;
+  const player = usePlayer();
+  const isPlaying = player.isPlaying;
+  const activeId = player.activeId;
 
   const togglePlay = (id: string) => {
+    console.log("id", id);
+    if (isPlaying && id === activeId) {
+      // pause
+      console.log("pause");
+      return;
+    }
     onPlay(id);
-    if (isPlaying) {
-      sound?.pause();
-    }
-    if (player?.activeId && !isPlaying) {
-      sound.play();
-    }
     player.setIsPlaying(!isPlaying);
   };
   return (
@@ -136,13 +144,15 @@ const SectionContent = ({ songs }: any) => {
             ["--row-gap" as any]: "16px",
           }}
         >
-          <SectionFeatureItem
-            id={CONST_ID}
-            onClick={(id: string) => togglePlay(CONST_ID)}
-            isPlaying={
-              CONST_ID === player.activeId?.toString() && player.isPlaying
-            }
-          />
+          {songs.map((song: any) => (
+            <SectionFeatureItem
+              key={song.id}
+              onClick={(id: string) => togglePlay(song.id)}
+              data={song}
+              isActive={song.id === player.activeId}
+              isPlaying={song.id === player.activeId && player.isPlaying}
+            />
+          ))}
         </div>
       </section>
     </>

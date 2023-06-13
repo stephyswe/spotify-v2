@@ -4,10 +4,15 @@ import usePlayer from "@/hooks/usePlayer";
 
 export const RealContent = ({ songs }: any) => {
   const player = usePlayer();
+  const isPlaying = player.isPlaying;
   const onPlay = useOnPlay(songs);
 
-  // what is vals
-  console.log(player.activeId, player.isPlaying);
+  const togglePlay = (id: string) => {
+    if (isPlaying && player.activeId === id) return;
+    onPlay(id);
+    player.setIsPlaying(!isPlaying);
+  };
+
   return (
     <>
       <div
@@ -27,10 +32,10 @@ export const RealContent = ({ songs }: any) => {
         {songs.map((song: any) => (
           <SidebarSongItem
             key={song.id}
-            onClick={(id: string) => onPlay(id)}
+            onClick={(id: string) => togglePlay(song.id)}
             data={song}
-            isActive={song.id.toString() === player.activeId}
-            isPlaying={song.id.toString() === player.activeId && player.isPlaying}
+            isActive={song.id === player.activeId}
+            isPlaying={song.id === player.activeId && player.isPlaying}
           />
         ))}
         {/* <SidebarSongItem data={secSong} type="playlist" isFake /> */}
