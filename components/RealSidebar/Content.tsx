@@ -1,22 +1,15 @@
 import { SidebarSongItem } from "@/components/RealSidebar/RealItem";
 import usePlayer from "@/hooks/usePlayer";
 
-const firstSong = {
+/* const secSong = {
   title: "Bambi",
   author: "Felicia Takman",
   imagePath: "https://i.scdn.co/image/ab6761610000101fa65763e9456ae53d4f5b4bae",
-};
-
-const secSong = {
-  title: "Bambi",
-  author: "Felicia Takman",
-  imagePath: "https://i.scdn.co/image/ab6761610000101fa65763e9456ae53d4f5b4bae",
-};
+}; */
 
 export const RealContent = ({ songs, onPlay }: any) => {
   const player = usePlayer();
   // const { song } = useGetSongById(player.activeId);
-  console.log("player active id", player.activeId);
   return (
     <>
       <div
@@ -42,8 +35,7 @@ export const RealContent = ({ songs, onPlay }: any) => {
             isPlaying={song.id === player.activeId && player.isPlaying}
           />
         ))}
-        <SidebarSongItem data={firstSong} isFake />
-        <SidebarSongItem data={secSong} type="playlist" isFake />
+        {/* <SidebarSongItem data={secSong} type="playlist" isFake /> */}
       </div>
 
       <div

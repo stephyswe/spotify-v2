@@ -9,13 +9,12 @@ export const SidebarSongItem = ({
   isActive,
   isPlaying,
   data,
-  isFake,
   type = "Artist",
 }: any) => {
   let imageUrl;
-  if (!isFake) {
-    imageUrl = useLoadImage(data);
-  }
+
+  imageUrl = useLoadImage(data);
+
   const player = usePlayer();
 
   const handleClick = () => {
@@ -74,7 +73,7 @@ export const SidebarSongItem = ({
                 aria-hidden="true"
                 draggable="false"
                 loading="eager"
-                src={isFake ? data.imagePath : imageUrl}
+                src={imageUrl || "/images/placeholder.png"}
                 data-testid="entity-image"
                 alt={data.author}
                 className="mMx2LUixlnN_Fu45JpFB iJp40IxKg6emF6KYJ414 yOKoknIYYzAE90pe7_SE Yn2Ei5QZn19gria6LjZj"

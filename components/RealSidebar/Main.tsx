@@ -87,7 +87,6 @@ const SidebarBottom = ({ songs }: any) => {
   const onPlay = useOnPlay(songs);
 
   const onClickPlus = () => {
-    console.log("click plus");
     if (!user) {
       return authModal.onOpen();
     }
