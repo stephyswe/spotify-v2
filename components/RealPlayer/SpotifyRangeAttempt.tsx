@@ -1,6 +1,5 @@
-"use client";
+/* "use client";
 
-/* eslint-disable @next/next/no-img-element */
 import { throttle } from "lodash";
 import { useEffect, useRef, useState } from "react";
 import { useAudio, useFullscreen, useToggle } from "react-use";
@@ -137,7 +136,7 @@ const SpotifyPlayer = () => {
   );
 };
 
-/* return (
+return (
   <div className="JG5J9NWJkaUO9fiKECMA">
     <footer
       className="GD2gbRtcs5dOjMGAM_Y4"
@@ -157,6 +156,7 @@ const SpotifyPlayer = () => {
       </div>
     </footer>
   </div>
-); */
+);
 
 export default SpotifyPlayer;
+ */
