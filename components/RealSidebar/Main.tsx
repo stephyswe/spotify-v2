@@ -84,8 +84,6 @@ const SidebarBottom = ({ songs }: any) => {
   const authModal = useAuthModal();
   const subscribeModal = useSubscribeModal();
 
-  const onPlay = useOnPlay(songs);
-
   const onClickPlus = () => {
     if (!user) {
       return authModal.onOpen();
@@ -107,7 +105,7 @@ const SidebarBottom = ({ songs }: any) => {
         </div>
         <div className="os-host os-host-foreign os-theme-spotify os-host-resize-disabled os-host-scrollbar-horizontal-hidden _K79lE9KrIAkl_bUSSUM os-host-scrollbar-vertical-hidden os-host-transition">
           <SidebarContent>
-            <RealContent songs={songs} onPlay={onPlay} />
+            <RealContent songs={songs} />
           </SidebarContent>
         </div>
       </div>

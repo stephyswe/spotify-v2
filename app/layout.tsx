@@ -16,6 +16,7 @@ import UserProvider from "@/providers/UserProvider";
 import "./css/spotify-more.css";
 import "./css/spotify-sidebar.css";
 import "./css/spotify.css";
+import "./css/home-v2.css";
 //global css
 import "./globals.css";
 
@@ -48,14 +49,11 @@ export default async function RootLayout({
           <UserProvider>
             <ModalProvider products={products} />
             <main id="main">
-              <div id="root" className="Root encore-dark-theme nav-ylx">
-                <style>
-                  {`
-                    :root {
-                      --panel-gap: 8px;
-                    }
-                  `}
-                </style>
+              <div
+                id="root"
+                className="Root encore-dark-theme nav-ylx"
+                style={{ ["--panel-gap" as any]: "8px" }}
+              >
                 <div className="ZQftYELq0aOsg6tPbVbV">
                   <NewHeader />
                   <NewSidebar songs={userSongs} />

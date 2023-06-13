@@ -95,7 +95,9 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
     player.setId(previousSong);
   };
 
-  const [play, { pause, sound }] = useSound(songUrl, {
+  const isPaused = false;
+
+  const [play, { pause, sound, duration }] = useSound(songUrl, {
     volume: volume,
     onplay: () => setIsPlaying(true),
     onend: () => {
@@ -106,6 +108,12 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
     format: ["mp3"],
   });
 
+  // capture sound
+
+  /* useEffect(() => {
+    player.isPlaying ? play() : pause();
+  }, [player.isPlaying, play, pause]);
+ */
   useEffect(() => {
     sound?.play();
 
