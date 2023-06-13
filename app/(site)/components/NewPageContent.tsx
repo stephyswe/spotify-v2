@@ -91,7 +91,7 @@ const SectionFeatureItem = ({ isPlaying, onClick, data }: any) => {
               <button
                 onClick={onClick}
                 data-testid="play-button"
-                aria-label="Play"
+                aria-label={isPlaying ? "Play" : "Pause"}
                 data-encore-id="buttonPrimary"
                 className="Button-sc-qlcn5g-0 mCyvT"
               >
@@ -117,17 +117,21 @@ const SectionContent = ({ songs }: any) => {
   const onPlay = useOnPlay(songs);
 
   const player = usePlayer();
-  const isPlaying = player.isPlaying;
-  const activeId = player.activeId;
+  const { isPlaying, activeId, play, pause } = player;
 
   const togglePlay = (id: string) => {
-    console.log("id", id);
     if (isPlaying && id === activeId) {
       // pause
-      console.log("pause");
+      if (pause) {
+        pause();
+      }
+      player.setIsPlaying(!isPlaying);
       return;
     }
     onPlay(id);
+    if (play) {
+      play();
+    }
     player.setIsPlaying(!isPlaying);
   };
   return (

@@ -108,12 +108,12 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
     format: ["mp3"],
   });
 
-  // capture sound
+  // capture pause & play
+  useEffect(() => {
+    player.setPlay(play);
+    player.setPause(pause);
+  }, [play, pause]);  // eslint-disable-line react-hooks/exhaustive-deps
 
-  /* useEffect(() => {
-    player.isPlaying ? play() : pause();
-  }, [player.isPlaying, play, pause]);
- */
   useEffect(() => {
     sound?.play();
 
@@ -151,9 +151,7 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
   const handlePlay = () => {
     if (!isPlaying) {
       play();
-      // player.setIsPlaying(true);
     } else {
-      //player.setIsPlaying(false);
       pause();
     }
   };

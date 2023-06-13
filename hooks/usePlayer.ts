@@ -1,15 +1,18 @@
+import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
 
 interface PlayerStore {
   ids: string[];
   activeId?: string;
   isPlaying?: boolean;
-  sound?: any;
+  play?: () => void;
+  pause?: () => void;
   setId: (id: string) => void;
   setIds: (ids: string[]) => void;
   reset: () => void;
   setIsPlaying: (isPlaying: boolean) => void;
-  setSound: (sound: any) => void;
+  setPlay: (play: () => void) => void;
+  setPause: (pause: () => void) => void;
 }
 
 const usePlayer = create<PlayerStore>((set) => ({
@@ -19,7 +22,8 @@ const usePlayer = create<PlayerStore>((set) => ({
   setIds: (ids: string[]) => set({ ids }),
   reset: () => set({ ids: [], activeId: undefined }),
   setIsPlaying: (isPlaying: boolean) => set({ isPlaying }),
-  setSound: (sound: any) => set({ sound }),
+  setPlay: (play: () => void) => set({ play }),
+  setPause: (pause: () => void) => set({ pause }),
 }));
 
 export default usePlayer;

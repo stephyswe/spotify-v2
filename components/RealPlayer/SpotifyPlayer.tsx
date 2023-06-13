@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import SpotifyPlayerContent from "@/components/RealPlayer/SpotifyPlayerContent";
 import useGetSongById from "@/hooks/useGetSongById";
@@ -8,9 +8,14 @@ import useLoadSongUrl from "@/hooks/useLoadSongUrl";
 import usePlayer from "@/hooks/usePlayer";
 
 const SpotifyPlayer = () => {
-  const [volume, setVolume] = useState<number>(
-    parseFloat(localStorage.getItem("volume") ?? "0.5")
-  );
+  const [volume, setVolume] = useState<number>(0.5); // default volume
+
+  useEffect(() => {
+    const initialVolume = localStorage.getItem("volume");
+    if (initialVolume) {
+      setVolume(parseFloat(initialVolume));
+    }
+  }, []);
 
   const player = usePlayer();
   const { song } = useGetSongById(player.activeId);
