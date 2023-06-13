@@ -3,12 +3,16 @@ import { Figtree } from "next/font/google";
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 import getSongsByUserId from "@/actions/getSongsByUserId";
 import Player from "@/components/Player";
+import SpotifyPlayer from "@/components/RealPlayer/SpotifyPlayer";
 import Sidebar from "@/components/Sidebar";
 import ModalProvider from "@/providers/ModalProvider";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
 import UserProvider from "@/providers/UserProvider";
 
+import "./css/spotify-more.css";
+// spotify css
+import "./css/spotify.css";
 import "./globals.css";
 
 const font = Figtree({ subsets: ["latin"] });
@@ -36,7 +40,7 @@ export default async function RootLayout({
           <UserProvider>
             <ModalProvider products={products} />
             <Sidebar songs={userSongs}>{children}</Sidebar>
-            <Player />
+            <SpotifyPlayer />
           </UserProvider>
         </SupabaseProvider>
       </body>
