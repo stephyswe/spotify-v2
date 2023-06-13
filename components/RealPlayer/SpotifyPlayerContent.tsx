@@ -54,8 +54,7 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
   const player = usePlayer();
 
   // const values
-  const isPlaying = player.isPlaying;
-  const setIsPlaying = player.setIsPlaying;
+  const { isPlaying, setIsPlaying } = player;
 
   const [progress, setProgress] = useState(0);
   //
@@ -95,9 +94,7 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
     player.setId(previousSong);
   };
 
-  const isPaused = false;
-
-  const [play, { pause, sound, duration }] = useSound(songUrl, {
+  const [play, { pause, sound }] = useSound(songUrl, {
     volume: volume,
     onplay: () => setIsPlaying(true),
     onend: () => {
@@ -112,7 +109,7 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
   useEffect(() => {
     player.setPlay(play);
     player.setPause(pause);
-  }, [play, pause]);  // eslint-disable-line react-hooks/exhaustive-deps
+  }, [play, pause]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     sound?.play();

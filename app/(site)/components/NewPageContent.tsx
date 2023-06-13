@@ -1,13 +1,22 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import clsx from "clsx";
+import { useEffect, useRef, useState } from "react";
 
 import {
   SvgPagesPlay,
   SvgPagesPlayPause,
 } from "@/components/icons/pages/SvgPlay";
+import useLoadImage from "@/hooks/useLoadImage";
 import useOnPlay from "@/hooks/useOnPlay";
 import usePlayer from "@/hooks/usePlayer";
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
 
 const Content = ({ songs }: any) => (
   <div
@@ -31,7 +40,7 @@ const Content = ({ songs }: any) => (
   </div>
 );
 
-const SectionWelcome = () => (
+const ContainerWelcome = () => (
   <div className="OMuRYOdpUbGif12_lRJl">
     <div className="onVWL7MW4PW9FyVajBAc">
       <h2
@@ -47,7 +56,7 @@ const SectionWelcome = () => (
 
 const SectionFeatureItem = ({ isPlaying, onClick, data }: any) => {
   const player = usePlayer();
-  const activeId = player.activeId;
+  const imageUrl = useLoadImage(data);
   return (
     <div className="Z35BWOA10YGn5uc9YgAp">
       <div className="g3f_cI5usQX7ZOQyDtA9" draggable="true">
@@ -57,7 +66,7 @@ const SectionFeatureItem = ({ isPlaying, onClick, data }: any) => {
               aria-hidden="false"
               draggable="false"
               loading="lazy"
-              src="https://i.scdn.co/image/ab6761610000e5ebe5289a2a13c374dd34a97247"
+              src={imageUrl || "/images/placeholder.png"}
               data-testid="shortcut-image"
               alt=""
               className="mMx2LUixlnN_Fu45JpFB WWDxafTPs4AgThdcX5jN Yn2Ei5QZn19gria6LjZj"
@@ -134,32 +143,293 @@ const SectionContent = ({ songs }: any) => {
     }
     player.setIsPlaying(!isPlaying);
   };
+
+  const ref = useRef<HTMLDivElement>(null);
+  const [minColWidth, setMinColWidth] = useState("270px");
+  const [itemHeight, setItemHeight] = useState("80px");
+  const [colGap, setColGap] = useState("24px");
+  const [rowGap, setRowGap] = useState("16px");
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (ref.current) {
+        const width = ref.current.getBoundingClientRect().width;
+        if (width <= 850) {
+          setMinColWidth("270px");
+          setItemHeight("64px");
+          setColGap("24px");
+          setRowGap("12px");
+        } else {
+          setMinColWidth("270px");
+          setItemHeight("80px");
+          setColGap("24px");
+          setRowGap("16px");
+        }
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Call the handleResize function to set the initial state
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
       <section className="rPV8BmHZXaGIGT2HwvBB" aria-label="Good afternoon">
-        <SectionWelcome />
+        <ContainerWelcome />
 
         <div
+          ref={ref}
           className="nlOU1unbFAd7ZHyeSMTH"
           style={{
-            ["--min-column-width" as any]: "270px",
-            ["--item-height" as any]: "80px",
-            ["--column-gap" as any]: "24px",
-            ["--row-gap" as any]: "16px",
+            ["--min-column-width" as any]: minColWidth,
+            ["--item-height" as any]: itemHeight,
+            ["--column-gap" as any]: colGap,
+            ["--row-gap" as any]: rowGap,
           }}
         >
           {songs.map((song: any) => (
-            <SectionFeatureItem
-              key={song.id}
-              onClick={(id: string) => togglePlay(song.id)}
-              data={song}
-              isActive={song.id === player.activeId}
-              isPlaying={song.id === player.activeId && player.isPlaying}
-            />
+            <>
+              <SectionFeatureItem
+                key={song.id}
+                onClick={(id: string) => togglePlay(song.id)}
+                data={song}
+                isActive={song.id === player.activeId}
+                isPlaying={song.id === player.activeId && player.isPlaying}
+              />
+              <SectionFeatureItem
+                key={song.id}
+                onClick={(id: string) => togglePlay(song.id)}
+                data={song}
+                isActive={song.id === player.activeId}
+                isPlaying={song.id === player.activeId && player.isPlaying}
+              />
+            </>
           ))}
         </div>
       </section>
+      <SectionMadeFor />
     </>
+  );
+};
+
+const MadeForItem = () => (
+  <div className="LunqxlFIupJw_Dkx6mNx">
+    <div draggable="true" className="XiVwj5uoqqSFpS4cYOC6">
+      <div className="xBV4XgMq0gC5lQICFWY_">
+        <div
+          className="g4PZpjkqEh5g7xDpCr2K"
+          style={{ ["--card-color" as any]: "#5477AF" }}
+        >
+          <div className="">
+            <img
+              aria-hidden="false"
+              draggable="false"
+              loading="lazy"
+              src="https://dailymix-images.scdn.co/v2/img/ab67616d0000b2732629d34abc381ed283504d7b/1/en/default"
+              data-testid="card-image"
+              alt=""
+              className="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt Yn2Ei5QZn19gria6LjZj"
+            />
+          </div>
+        </div>
+        <div className="woJQ5t2YiaJhjTv_KE7p">
+          <div className="PFgcCoJSWC3KjhZxHDYH">
+            <button
+              data-testid="play-button"
+              aria-label="Play Daily Mix 1"
+              data-encore-id="buttonPrimary"
+              className="Button-sc-qlcn5g-0 mCyvT"
+            >
+              <span className="ButtonInner-sc-14ud5tc-0 lmjRIQ encore-bright-accent-set">
+                <span
+                  aria-hidden="true"
+                  className="IconWrapper__Wrapper-sc-1hf1hjl-0 erHrNB"
+                >
+                  <svg
+                    role="img"
+                    height="24"
+                    width="24"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    data-encore-id="icon"
+                    className="Svg-sc-ytk21e-0 haNxPq"
+                  >
+                    <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"></path>
+                  </svg>
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="E1N1ByPFWo4AJLHovIBQ">
+        <a
+          draggable="false"
+          title="Daily Mix 1"
+          className="Nqa6Cw3RkDMV8QnYreTr"
+          dir="auto"
+          href="/playlist/37i9dQZF1E38CQRep75Jse"
+        >
+          <div
+            className="Type__TypeElement-sc-goli3j-0 gIkgYW nk6UgB4GUYNoAcPtAQaG"
+            data-encore-id="type"
+          >
+            Daily Mix 1
+          </div>
+        </a>
+        <div
+          className="Type__TypeElement-sc-goli3j-0 bDHxRN Za_uNH8nTZ0qCuIqbPLZ"
+          data-encore-id="type"
+        >
+          Steel Drum Island, Jamaican Steel Band, The Island Caribbean Steel
+          Drum Band and more
+        </div>
+      </div>
+      <div
+        className="tsv7E_RBBw6v0XTQlcRo"
+        data-testid="card-click-handler"
+      ></div>
+    </div>
+  </div>
+);
+
+const SectionMadeFor = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [columns, setColumns] = useState(6);
+  const [colWidth, setColWidth] = useState(201);
+  const [gridGap, setGridGap] = useState(24); // initial value is 24, adjust as per your need
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (ref.current) {
+        const gridGap = Number(
+          getComputedStyle(ref.current)
+            .getPropertyValue("--grid-gap")
+            .replace("px", "")
+        );
+        let columns = 6; // initial columns count is now 6
+        let minColWidth = 201;
+
+        // get the width of the grid container
+        const width = ref.current.getBoundingClientRect().width;
+
+        // calculate the width of one column
+        let colWidth = Math.floor((width - (columns - 1) * gridGap) / columns);
+
+        while (colWidth < 180 && columns > 2) {
+          columns--;
+          colWidth = Math.floor((width - (columns - 1) * gridGap) / columns);
+        }
+
+        if (columns === 3 && colWidth < 157) {
+          columns = 2;
+          colWidth = Math.floor((width - (columns - 1) * gridGap) / columns);
+        }
+
+        while (columns < 9) {
+          if (
+            (columns === 6 && colWidth > 213) ||
+            (columns === 7 && colWidth > 208) ||
+            (columns === 8 && colWidth > 204)
+          ) {
+            columns++;
+            colWidth = Math.floor((width - (columns - 1) * gridGap) / columns);
+          } else {
+            break;
+          }
+        }
+
+        // Update state values for column width and column count
+        setColumns(columns);
+        setColWidth(colWidth);
+
+        // Update grid gap if necessary
+        if (columns === 3) {
+          setGridGap(18);
+        } else if (columns === 2) {
+          setGridGap(12);
+        } else {
+          setGridGap(24);
+        }
+      }
+    };
+
+    // add event listener to the window resize event
+    window.addEventListener("resize", handleResize);
+
+    // initial call
+    handleResize();
+
+    // remove the event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <section
+      className="QyANtc_r7ff_tqrf5Bvc Shelf"
+      data-testid="component-shelf"
+      aria-label="Made For stephaniiehallberg"
+    >
+      <div className="q8AZzDc_1BumBHZg0tZb">
+        <div className="OMuRYOdpUbGif12_lRJl">
+          <div className="onVWL7MW4PW9FyVajBAc">
+            <h2
+              data-encore-id="type"
+              className="Type__TypeElement-sc-goli3j-0 kqHgh"
+            >
+              <a
+                draggable="false"
+                data-testid="see-all-link"
+                className="MfVrtIzQJ7iZXfRWg6eM"
+                href="/section/0JQ5DAqbMKFwJhEbnbBUE9"
+              >
+                Made For stephaniiehallberg
+              </a>
+            </h2>
+          </div>
+          <a
+            draggable="false"
+            className="a7lvtXATo3HALtrsOHtO HOgue4Eg4UdBR58M0633"
+            href="/section/0JQ5DAqbMKFwJhEbnbBUE9"
+          >
+            <span
+              data-encore-id="type"
+              className="Type__TypeElement-sc-goli3j-0 eoWRdH"
+            >
+              Show all
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
+        ref={ref}
+        data-testid="grid-container"
+        className="iKwGKEfAfW7Rkx2_Ba4E Z4InHgCs2uhk0MU93y_a"
+        style={{
+          ["--column-width" as any]: colWidth + "px",
+          ["--column-count" as any]: columns,
+          ["--grid-gap" as any]: gridGap + "px",
+          ["--min-container-width" as any]: "372px",
+        }}
+      >
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+        <MadeForItem />
+      </div>
+    </section>
   );
 };
 

@@ -598,6 +598,20 @@
     transform: scale(1);
 }
 
+h1, h2, h3 {
+    margin-bottom: 0.5em!important;
+}
+
+.kqHgh {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    margin-block: 0px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-family,CircularSpTitle,CircularSpTitle-Tall,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    color: var(--text-base,#000000);
+}
+
 @media (min-width: 768px) {
     .ieTwfQ {
         font-size: 0.875rem;
