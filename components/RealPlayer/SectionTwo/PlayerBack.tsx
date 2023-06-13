@@ -1,23 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 
-export const PlayBackDuration = () => (
+export const PlayBackDuration = ({ value }: any) => (
   <div
     data-testid="playback-duration"
     data-test-position="9199"
     className="Type__TypeElement-sc-goli3j-0 fcYQUS npFSJSO1wsu3mEEGb5bh"
     data-encore-id="type"
   >
-    3:08
+    {value}
   </div>
 );
 
-export const PlayBackPosition = () => (
+export const PlayBackPosition = ({ value }: any) => (
   <div
     data-testid="playback-position"
     className="Type__TypeElement-sc-goli3j-0 fcYQUS playback-bar__progress-time-elapsed"
     data-encore-id="type"
   >
-    0:09
+    {value}
   </div>
 );
 

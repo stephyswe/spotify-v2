@@ -16,7 +16,7 @@ import {
   PlayBackPosition,
   SeekControl,
 } from "@/components/RealPlayer/SectionTwo/PlayerBack";
-import { SectionTwoPlayerControls } from "@/components/RealPlayer/SectionTwo/SectionTwo";
+import { SectionTwoPlayerControls } from "@/components/RealPlayer/SectionTwo/SectionTwoPlayerControls";
 import SliderTrack from "@/components/SliderTrack";
 import {
   SvgPlayVolumeFull,
@@ -32,7 +32,7 @@ import {
 import usePlayer from "@/hooks/usePlayer";
 import { Song } from "@/types";
 
-function formatTime(seconds: number) {
+export function formatTime(seconds: number) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
@@ -226,7 +226,9 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
             PlayIcon={PlayIcon}
           />
           <div className="playback-bar">
-            <PlayBackPosition />
+            <PlayBackPosition
+              value={sound ? formatTime(Math.floor(progress)) : "-:--"}
+            />
             <div
               className="p1ULRzPc4bD8eQ4T_wyp pt-[1px]"
               data-testid="playback-progressbar"
@@ -239,7 +241,9 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
                 setIsDragging={setIsDragging}
               />
             </div>
-            <PlayBackDuration />
+            <PlayBackDuration
+              value={sound ? formatTime(Math.floor(sound.duration())) : "-:--"}
+            />
           </div>
         </div>
       </div>

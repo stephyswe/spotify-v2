@@ -59,7 +59,6 @@ const Slider: React.FC<SlideProps> = ({ value = 1, onChange, max = 1 }) => {
           bg-transparent
           group-hover:bg-white
           rounded-full
-          cursor-pointer
           border-none
           focus:outline-none
         "

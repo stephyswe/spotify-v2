@@ -65,7 +65,6 @@ const SliderTrack: React.FC<SlideProps> = ({
             bg-transparent
             group-hover:bg-white
             rounded-full
-            cursor-pointer
             focus:outline-none
           "
       />
