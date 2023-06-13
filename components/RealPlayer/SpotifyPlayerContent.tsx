@@ -219,6 +219,8 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
           aria-label="Player controls"
         >
           <SectionTwoPlayerControls
+            onPlayPrevious={onPlayPrevious}
+            onPlayNext={onPlayNext}
             handlePlay={handlePlay}
             PlayIcon={PlayIcon}
           />

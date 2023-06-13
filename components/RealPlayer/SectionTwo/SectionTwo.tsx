@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 
 import {
   SvgPlayBack,
-  SvgPlayButton,
   SvgPlayNext,
   SvgPlayRepeat,
   SvgPlayShuffle,
@@ -21,12 +20,28 @@ export const ButtonPlayShuffle = () => (
   </button>
 );
 
-export const ButtonPlayPrev = () => (
+interface ButtonPlayProps {
+  onClick: () => void;
+}
+
+export const ButtonPlayNext: React.FC<ButtonPlayProps> = ({ onClick }: any) => (
+  <button
+    className="mnipjT4SLDMgwiDCEnRC"
+    aria-label="Next"
+    data-testid="control-button-skip-forward"
+    onClick={onClick}
+  >
+    <SvgPlayNext />
+  </button>
+);
+
+export const ButtonPlayPrev: React.FC<ButtonPlayProps> = ({ onClick }) => (
   <button
     className="fn72ari9aEmKo4JcwteT"
     aria-label="Previous"
     data-testid="control-button-skip-back"
     aria-expanded="false"
+    onClick={onClick}
   >
     <SvgPlayBack />
   </button>
@@ -41,16 +56,6 @@ export const ButtonPlay = ({ onClick, PlayIcon }: any) => (
     onClick={onClick}
   >
     <PlayIcon />
-  </button>
-);
-
-export const ButtonPlayNext = () => (
-  <button
-    className="mnipjT4SLDMgwiDCEnRC"
-    aria-label="Next"
-    data-testid="control-button-skip-forward"
-  >
-    <SvgPlayNext />
   </button>
 );
 
@@ -69,11 +74,13 @@ export const ButtonPlayRepeat = () => (
 interface SectionTwoPlayerControlsProps {
   PlayIcon: any;
   handlePlay: () => void;
+  onPlayNext: () => void;
+  onPlayPrevious: () => void;
 }
 
 export const SectionTwoPlayerControls: React.FC<
   SectionTwoPlayerControlsProps
-> = ({ PlayIcon, handlePlay }: any) => {
+> = ({ PlayIcon, handlePlay, onPlayNext, onPlayPrevious }: any) => {
   const controlsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -95,11 +102,11 @@ export const SectionTwoPlayerControls: React.FC<
     >
       <div className="player-controls__left">
         <ButtonPlayShuffle />
-        <ButtonPlayPrev />
+        <ButtonPlayPrev onClick={onPlayPrevious} />
       </div>
       <ButtonPlay onClick={handlePlay} PlayIcon={PlayIcon} />
       <div className="player-controls__right">
-        <ButtonPlayNext />
+        <ButtonPlayNext onClick={onPlayNext} />
         <ButtonPlayRepeat />
       </div>
     </div>
