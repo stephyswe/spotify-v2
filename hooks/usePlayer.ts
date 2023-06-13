@@ -1,4 +1,3 @@
-import { mountStoreDevtool } from "simple-zustand-devtools";
 import { create } from "zustand";
 
 interface PlayerStore {
