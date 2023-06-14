@@ -15,6 +15,7 @@ import ToasterProvider from "@/providers/ToasterProvider";
 import UserProvider from "@/providers/UserProvider";
 
 // spotify css
+import "./css/artist.css";
 import "./css/footer.css";
 import "./css/home-v2.css";
 import "./css/spotify-more.css";

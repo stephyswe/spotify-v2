@@ -6,9 +6,6 @@ import MadeForItem from "@/app/(site)/components/MadeForItem";
 import { useGridResize } from "@/hooks/useGridSize";
 
 const MadeForSection = ({ allItems, data: { title } }: any) => {
-  const { ref, colWidth, columns, gridGap } = useGridResize();
-  const onItems = allItems ? 10 : columns;
-
   return (
     <section
       className="QyANtc_r7ff_tqrf5Bvc Shelf"
@@ -46,25 +43,33 @@ const MadeForSection = ({ allItems, data: { title } }: any) => {
           </a>
         </div>
       </div>
-      <div
-        ref={ref}
-        data-testid="grid-container"
-        className={clsx(
-          "iKwGKEfAfW7Rkx2_Ba4E Z4InHgCs2uhk0MU93y_a",
-          allItems ? "BtbiwMynlB4flsYu_hA2" : ""
-        )}
-        style={{
-          ["--column-width" as any]: colWidth + "px",
-          ["--column-count" as any]: columns,
-          ["--grid-gap" as any]: gridGap + "px",
-          ["--min-container-width" as any]: "372px",
-        }}
-      >
-        {[...Array(onItems)].map((_, i) => (
-          <MadeForItem key={i} />
-        ))}
-      </div>
+      <MadeforList allItems={allItems} />
     </section>
+  );
+};
+
+export const MadeforList = ({ allItems }: any) => {
+  const { ref, colWidth, columns, gridGap } = useGridResize();
+  const onItems = allItems ? 10 : columns;
+  return (
+    <div
+      ref={ref}
+      data-testid="grid-container"
+      className={clsx(
+        "iKwGKEfAfW7Rkx2_Ba4E Z4InHgCs2uhk0MU93y_a",
+        allItems ? "BtbiwMynlB4flsYu_hA2" : ""
+      )}
+      style={{
+        ["--column-width" as any]: colWidth + "px",
+        ["--column-count" as any]: columns,
+        ["--grid-gap" as any]: gridGap + "px",
+        ["--min-container-width" as any]: "372px",
+      }}
+    >
+      {[...Array(onItems)].map((_, i) => (
+        <MadeForItem key={i} />
+      ))}
+    </div>
   );
 };
 

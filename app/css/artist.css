@@ -1,0 +1,101 @@
+.esyykA {
+    fill: var(--text-announcement,#0c67d3);
+}
+
+@media (min-width: 768px) {
+    .dYGhLW {
+        font-size: 6rem;
+    }
+}
+
+.dYGhLW {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    margin-block: 0px;
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-family: var(--font-family,CircularSpTitle,CircularSpTitle-Tall,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    color: var(--text-base,#000000);
+}
+
+.DjJKP {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1.125rem;
+    font-weight: 700;
+    font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    background-color: transparent;
+    border: 0px;
+    border-radius: 500px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    touch-action: manipulation;
+    transition-duration: 33ms;
+    transition-property: background-color, border-color, color, box-shadow, filter, transform;
+    user-select: none;
+    vertical-align: middle;
+    transform: translate3d(0px, 0px, 0px);
+    padding: 0px;
+    min-inline-size: 0px;
+    align-self: center;
+}
+
+.gGxSiT {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    background-color: var(--background-base,#1ed760);
+    color: var(--text-base,#000000);
+    display: flex;
+    border-radius: 500px;
+    font-size: inherit;
+    min-block-size: 56px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    inline-size: 56px;
+    block-size: 56px;
+}
+
+.DjJKP:hover .ButtonInner-sc-14ud5tc-0 {
+    background-color: var(--background-highlight,#1fdf64);
+}
+
+.DjJKP:hover .ButtonInner-sc-14ud5tc-0, .DjJKP:hover .ButtonFocus-sc-2hq6ey-0 {
+    transform: scale(1.04);
+}
+
+.Chip__ChipComponent-sc-ry3uox-0:not([href]) > .diMang.diMang {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+}
+
+.diMang {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: var(--border-radius-pill,32px);
+    color: var(--text-base,#000000);
+    transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
+    display: inline-flex;
+    min-inline-size: 0px;
+    min-block-size: var(--control-size-sm,32px);
+    -webkit-box-align: center;
+    align-items: center;
+    padding-block-start: var(--spacer--4,4px);
+    padding-block-end: var(--spacer--4,4px);
+    padding-inline-start: var(--spacer--1,12px);
+    padding-inline-end: var(--spacer--1,12px);
+    background-color: var(--background-base,#ffffff);
+}
+
+@media (min-width: 768px) {
+    .Chip__ChipComponent-sc-ry3uox-0:not([href]) > .diMang.diMang {
+        font-size: 0.875rem;
+    }
+}
