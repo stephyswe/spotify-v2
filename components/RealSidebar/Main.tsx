@@ -30,7 +30,7 @@ const NewSidebar: React.FC<SidebarProps> = ({ songs }) => {
         icon: SvgHome,
         iconFilled: SvgHomeFilled,
         label: "Home",
-        active: pathname !== "/search",
+        active: pathname === "/",
         href: "/",
       },
       {
