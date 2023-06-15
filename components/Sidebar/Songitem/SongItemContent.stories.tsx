@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import SongItemContent from "@/components/Sidebar/SongItemContent";
+import SongItemContent from "@/components/Sidebar/Songitem/SongItemContent";
 
 const meta: Meta<typeof SongItemContent> = {
   title: "App/Sidebar/SongItem/Content",

@@ -1,5 +1,5 @@
 import ContentBase from "@/components/Sidebar/Content/ContentBase";
-import { SidebarSongItem } from "@/components/Sidebar/RealItem";
+import { SidebarSongItem } from "@/components/Sidebar/Songitem";
 import useOnPlay from "@/hooks/useOnPlay";
 import usePlayer from "@/hooks/usePlayer";
 

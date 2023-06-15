@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SidebarSongItem } from "@/components/Sidebar/RealItem";
-import SongItemBase from "@/components/Sidebar/RealItem/SongItemBase";
-import SongItemContent from "@/components/Sidebar/SongItemContent";
+import { SidebarSongItem } from "@/components/Sidebar/Songitem";
+import SongItemBase from "@/components/Sidebar/Songitem/SongItemBase";
+import SongItemContent from "@/components/Sidebar/Songitem/SongItemContent";
 import { SongsData } from "@/libs/data/songs";
 
 import ContentBase from "./ContentBase";
