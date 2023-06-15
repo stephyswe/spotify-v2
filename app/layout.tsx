@@ -1,7 +1,7 @@
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 import getSongsByUserId from "@/actions/getSongsByUserId";
 import NewHeader from "@/components/Header/RealHeader";
-import SpotifyPlayer from "@/components/Player/SpotifyPlayer";
+import Player from "@/components/Player";
 import Sidebar from "@/components/Sidebar";
 import LayoutContainer from "@/components/app/(layout)/LayoutContainer";
 import LayoutContent from "@/components/app/(layout)/LayoutContent";
@@ -37,7 +37,7 @@ export default async function RootLayout({ children }: LayoutProps) {
             Header={<NewHeader />}
             Sidebar={<Sidebar songs={userSongs} />}
             Content={<LayoutContent>{children}</LayoutContent>}
-            Player={<SpotifyPlayer />}
+            Player={<Player />}
           />
         </Providers>
       </body>

@@ -1,23 +1,9 @@
-import clsx from "clsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 import useSound from "use-sound";
 
-import {
-  PlayBackDuration,
-  PlayBackPosition,
-} from "@/components/Player/Controls/PlayerBack";
-import { SectionTwoPlayerControls } from "@/components/Player/Controls/SectionTwoPlayerControls";
-import SliderTrack from "@/components/Player/Controls/SliderTrack";
-import {
-  SectionThreeButton,
-  SectionThreeConnect,
-  SectionThreeGlueTarget,
-  SectionThreeVolume,
-} from "@/components/Player/Settings/SectionThree";
-import { SectionOneButton } from "@/components/Player/SongInfo/SectionOneButton";
-import { SectionOneContainerText } from "@/components/Player/SongInfo/SectionOneContainerText";
-import { SectionOneSvgBox } from "@/components/Player/SongInfo/SectionOneSvgBox";
-import { SvgExpand } from "@/components/icons/SvgExpand";
+import PlayerControls from "@/components/Player/Controls";
+import PlayerSettings from "@/components/Player/Settings";
+import SongInfo from "@/components/Player/SongInfo";
 import {
   SvgPlayVolumeFull,
   SvgPlayVolumeLow,
@@ -28,20 +14,14 @@ import { SvgPlayButton, SvgPlayPause } from "@/components/icons/SvgPlayShuffle";
 import usePlayer from "@/hooks/usePlayer";
 import { Song } from "@/types";
 
-export function formatTime(seconds: number) {
-  const mins = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
-  return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
-}
-
-interface SpotifyPlayerContentProps {
+interface PlayerBaseProps {
   song: Song | undefined;
   songUrl: string;
   setVolume: (volume: number) => void;
   volume: number;
 }
 
-export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
+const PlayerBase: React.FC<PlayerBaseProps> = ({
   song,
   songUrl,
   setVolume,
@@ -191,105 +171,37 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
 
   return (
     <div className="OCY4jHBlCVZEyGvtSv0J">
+      {/* Image, Text, Expand */}
       <div className="OgkbKIVYE_mrNpYESylB">
-        {/* Section Info */}
         {song ? (
-          <div
-            data-testid="now-playing-widget"
-            className={clsx(
-              "deomraqfhIAoSB3SgXpu",
-              isPicture ? "bYHWD_eQ1jAh3sAKTHtr" : ""
-            )}
-            role="contentinfo"
-            aria-label="Now playing: Bara lite känslor by Felicia Takman"
-          >
-            <div
-              data-testid="CoverSlotCollapsed__container"
-              className="rVxzkDirgkuRPv5V1HYF IcyWfMS5VkeOhaI7OWIx"
-              aria-hidden={isPicture ? "true" : "false"}
-            >
-              <SectionOneSvgBox data={song} />
-              <button
-                className="qWcH8e2laY9sYOuCsOAx"
-                aria-label="Expand"
-                onClick={onPicture}
-              >
-                <SvgExpand />
-              </button>
-            </div>
-            <SectionOneContainerText song={song} />
-            <SectionOneButton mode="control" />
-          </div>
+          <SongInfo
+            song={song}
+            isPicture={isPicture || false}
+            onPicture={onPicture}
+          />
         ) : null}
       </div>
-
       {/* Section Controls */}
-      <div className="P4eSEARM2h24PZxMHz1T">
-        <div
-          className="player-controls"
-          data-testid="player-controls"
-          dir="ltr"
-          aria-label="Player controls"
-        >
-          <SectionTwoPlayerControls
-            onPlayPrevious={onPlayPrevious}
-            onPlayNext={onPlayNext}
-            handlePlay={handlePlay}
-            PlayIcon={PlayIcon}
-          />
-          <div className="playback-bar">
-            <PlayBackPosition
-              value={sound ? formatTime(Math.floor(progress)) : "-:--"}
-            />
-            <div
-              className="p1ULRzPc4bD8eQ4T_wyp pt-[1px]"
-              data-testid="playback-progressbar"
-            >
-              <SliderTrack
-                value={progress}
-                onChange={(value) => handleSliderChange(value)}
-                onSeek={handleSeekChange}
-                max={sound ? Math.floor(sound.duration()) : 0}
-                setIsDragging={setIsDragging}
-              />
-            </div>
-            <PlayBackDuration
-              value={sound ? formatTime(Math.floor(sound.duration())) : "-:--"}
-            />
-          </div>
-        </div>
-      </div>
+      <PlayerControls
+        sound={sound}
+        progress={progress}
+        handlePlay={handlePlay}
+        onPlayNext={onPlayNext}
+        onPlayPrevious={onPlayPrevious}
+        handleSliderChange={handleSliderChange}
+        handleSeekChange={handleSeekChange}
+        PlayIcon={PlayIcon}
+        setIsDragging={setIsDragging}
+      />
       {/* Section Lyrics, Connect, Volume */}
-      <div className="jOKLc29vP0Bz1K0TsDtX">
-        <div className="mwpJrmCgLlVkJVtWjlI1">
-          <SectionThreeButton />
-          <SectionThreeGlueTarget />
-          <SectionThreeConnect />
-          <SectionThreeVolume
-            VolumeIcon={VolumeIcon}
-            volume={volume}
-            setVolume={setVolume}
-            toggleMute={toggleMute}
-          />
-        </div>
-      </div>
+      <PlayerSettings
+        VolumeIcon={VolumeIcon}
+        volume={volume}
+        setVolume={setVolume}
+        toggleMute={toggleMute}
+      />
     </div>
   );
 };
 
-export default SpotifyPlayerContent;
-
-export const InvisibleSeekLabel = () => (
-  <label className="hidden-visually">
-    Change progress
-    <input
-      type="range"
-      min="0"
-      max="188"
-      step="5"
-      aria-valuetext="0:09/3:08"
-      value={9}
-      onChange={() => {}}
-    />
-  </label>
-);
+export default PlayerBase;

@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import { SvgHeart } from "@/components/icons/pages/SvgHeart";
 
-export const SectionOneButton = ({ mode }: any) => {
+const PlayerLikeButton = ({ mode }: any) => {
   const controlButton = mode === "control";
   return (
     <button
@@ -23,3 +23,5 @@ export const SectionOneButton = ({ mode }: any) => {
     </button>
   );
 };
+
+export default PlayerLikeButton;

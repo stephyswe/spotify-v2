@@ -1,8 +1,7 @@
 import useLoadImage from "@/hooks/useLoadImage";
 import usePlayer from "@/hooks/usePlayer";
 
-export const SectionOneSvgBox = ({ data }: any) => {
-  const player = usePlayer();
+export const PlayerImage = ({ data }: any) => {
   const imageUrl = useLoadImage(data);
 
   return (
@@ -29,6 +28,8 @@ export const SectionOneSvgBox = ({ data }: any) => {
     </div>
   );
 };
+
+export default PlayerImage;
 
 const SectionOneImg = ({ imageUrl }: any) => (
   <img // eslint-disable-line @next/next/no-img-element

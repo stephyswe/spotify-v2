@@ -40,3 +40,15 @@ export const toDateTime = (secs: number) => {
   t.setSeconds(secs);
   return t;
 };
+
+function formatTime(seconds: number) {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+}
+
+export const formatProgress = (sound: any, progress: any) =>
+  sound ? formatTime(Math.floor(progress)) : "-:--";
+
+export const formatDuration = (sound: any) =>
+  sound ? formatTime(Math.floor(sound.duration())) : "-:--";

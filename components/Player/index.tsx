@@ -2,13 +2,17 @@
 
 import { useEffect, useState } from "react";
 
-import SpotifyPlayerContent from "./SpotifyPlayerContent";
 import useGetSongById from "@/hooks/useGetSongById";
 import useLoadSongUrl from "@/hooks/useLoadSongUrl";
 import usePlayer from "@/hooks/usePlayer";
 
+import PlayerBase from "./base";
+
 const SpotifyPlayer = () => {
   const [volume, setVolume] = useState<number>(0.5); // default volume
+  const player = usePlayer();
+  const { song } = useGetSongById(player.activeId);
+  const songUrl = useLoadSongUrl(song!);
 
   useEffect(() => {
     const initialVolume = localStorage.getItem("volume");
@@ -16,11 +20,6 @@ const SpotifyPlayer = () => {
       setVolume(parseFloat(initialVolume));
     }
   }, []);
-
-  const player = usePlayer();
-  const { song } = useGetSongById(player.activeId);
-
-  const songUrl = useLoadSongUrl(song!);
 
   const onVolume = (volume: number) => {
     setVolume(volume);
@@ -34,7 +33,7 @@ const SpotifyPlayer = () => {
         data-testid="now-playing-bar"
         data-testadtype="ad-type-none"
       >
-        <SpotifyPlayerContent
+        <PlayerBase
           key={songUrl}
           song={song}
           songUrl={songUrl}

@@ -1,4 +1,10 @@
-export const SectionOneContainerText = ({ song }: any) => {
+import { Song } from "@/types";
+
+interface PlayerSongContentProps {
+  data: Song;
+}
+
+const PlayerSongContent: React.FC<PlayerSongContentProps> = ({ data }) => {
   return (
     <div className="j96cpCtZAIdqxcDrYHPI ZcNcu7WZgOAz_Mkcoff3">
       <div className="Q_174taY6n64ZGC3GsKj">
@@ -21,7 +27,7 @@ export const SectionOneContainerText = ({ song }: any) => {
                     href={"#"} // Default to "#" if imageUrl is null
                     style={{ border: "none" }}
                   >
-                    {song.title}
+                    {data.title}
                   </a>
                 </span>
               </div>
@@ -46,7 +52,7 @@ export const SectionOneContainerText = ({ song }: any) => {
                     dir="auto"
                     href="/artist/3KdFzFHhUFCRdbllsQ1lZd"
                   >
-                    {song.author}
+                    {data.author}
                   </a>
                 </span>
               </div>
@@ -57,3 +63,5 @@ export const SectionOneContainerText = ({ song }: any) => {
     </div>
   );
 };
+
+export default PlayerSongContent;

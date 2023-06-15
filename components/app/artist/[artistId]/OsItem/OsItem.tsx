@@ -1,4 +1,4 @@
-import { SectionOneButton } from "@/components/Player/SongInfo/SectionOneButton";
+import PlayerLikeButton from "@/components/Player/SongInfo/Button";
 import OsItemContainer from "@/components/app/artist/[artistId]/OsItem/Container";
 import {
   OsItemDuration,
@@ -17,7 +17,7 @@ const OsItem = () => (
     }
     Title={<OsItemSongTitle title="Studenten" />}
     Listeners={<OsItemSongListeners title="123,255" />}
-    Like={<SectionOneButton />}
+    Like={<PlayerLikeButton />}
     Duration={<OsItemDuration duration="2:20" />}
     ThreeDotsButton={<OsItemThreeDotsButton />}
   />
