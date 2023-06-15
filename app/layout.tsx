@@ -1,6 +1,6 @@
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 import getSongsByUserId from "@/actions/getSongsByUserId";
-import NewHeader from "@/components/Header/RealHeader";
+import NewHeader from "@/components/Header";
 import Player from "@/components/Player";
 import Sidebar from "@/components/Sidebar";
 import LayoutContainer from "@/components/app/(layout)/LayoutContainer";

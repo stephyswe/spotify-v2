@@ -1,9 +1,9 @@
 "use client";
 
-import SidebarBottomBase from "@/components/Sidebar/Bottom/base";
 import ExpandedImage from "@/components/Sidebar/Bottom/ExpandedImage";
 import { SidebarFilter } from "@/components/Sidebar/Bottom/Filter";
 import SidebarLibrary from "@/components/Sidebar/Bottom/Library";
+import SidebarBottomBase from "@/components/Sidebar/Bottom/SidebarBottomBase";
 import SongItemList from "@/components/Sidebar/Bottom/SongItemList";
 import useAuthModal from "@/hooks/useAuthModal";
 import usePlayer from "@/hooks/usePlayer";
