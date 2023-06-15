@@ -1,4 +1,4 @@
-import { RealButton } from "@/components/Sidebar/Button";
+import { RealButton } from "@/components/Sidebar/Button/RealButton";
 import { IconWrapper } from "@/components/Sidebar/IconWrapper";
 import { SvgArrowRight } from "@/components/icons/SvgArrowRight";
 import { SvgLibrary } from "@/components/icons/SvgLibrary";

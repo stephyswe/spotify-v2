@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 
 const config: StorybookConfig = {
   stories: [
@@ -19,6 +20,22 @@ const config: StorybookConfig = {
       },
     },
   ],
+  webpackFinal: async (config, { configType }) => {
+    // Ensure config.resolve object exists
+    config.resolve = config.resolve || {};
+
+    // Ensure config.resolve.plugins array exists
+    config.resolve.plugins = config.resolve.plugins || [];
+
+    // Append TsconfigPathsPlugin to the plugins array
+    config.resolve.plugins.push(
+      new TsconfigPathsPlugin({
+        configFile: "./tsconfig.json",
+      })
+    );
+
+    return config;
+  },
   framework: {
     name: "@storybook/nextjs",
     options: {},

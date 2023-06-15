@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --loglevel silent --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "s": "npm run build-storybook && npm run storybook",
     "storybook": "storybook dev -p 6006 --ci",
     "build-storybook": "storybook build"
   },
@@ -58,6 +59,7 @@
     "encoding": "^0.1.13",
     "eslint-plugin-storybook": "^0.6.12",
     "storybook": "^7.0.21",
-    "supabase": "^1.64.8"
+    "supabase": "^1.64.8",
+    "tsconfig-paths-webpack-plugin": "^4.0.1"
   }
 }
