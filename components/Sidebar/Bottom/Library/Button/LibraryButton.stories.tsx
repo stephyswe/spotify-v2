@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { IconWrapper } from "@/components/Sidebar/Bottom/IconWrapper";
 import { SvgArrowRight } from "@/components/icons/SvgArrowRight";
 import { SvgLibrary } from "@/components/icons/SvgLibrary";
 import { SvgPlus } from "@/components/icons/SvgPlus";
 
-import { SidebarBottomButton } from "./SidebarBottomButton";
+import { LibraryIcon } from "../Icon";
+import { LibraryButton } from "./LibraryButton";
 
-const meta: Meta<typeof SidebarBottomButton> = {
-  title: "App/Sidebar/Bottom/SidebarBottomButton",
-  component: SidebarBottomButton,
+const meta: Meta<typeof LibraryButton> = {
+  title: "App/Sidebar/Bottom/Library/Button",
+  component: LibraryButton,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof SidebarBottomButton>;
+type Story = StoryObj<typeof LibraryButton>;
 type ButtonIcon = typeof SvgLibrary | typeof SvgPlus | typeof SvgArrowRight;
 
 const iconClassNames = {
@@ -31,10 +31,10 @@ const commonArgs = {
 
 const generateStory = (Icon: ButtonIcon, text?: boolean): Story => ({
   render: (args) => (
-    <SidebarBottomButton {...args}>
-      <IconWrapper className={iconClassNames[Icon.name]} Icon={Icon} />
+    <LibraryButton {...args}>
+      <LibraryIcon className={iconClassNames[Icon.name]} Icon={Icon} />
       {text ? args.label : null}
-    </SidebarBottomButton>
+    </LibraryButton>
   ),
   args: commonArgs,
 });

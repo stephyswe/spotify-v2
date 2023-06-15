@@ -1,4 +1,4 @@
-import { SidebarSearch } from "@/components/Sidebar/Bottom/Search";
+import SidebarSearch from "@/components/Sidebar/Bottom/Search";
 
 const SidebarContent = ({ children }: any) => (
   <>

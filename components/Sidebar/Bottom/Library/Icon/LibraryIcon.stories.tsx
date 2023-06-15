@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { SvgLibrary } from "@/components/icons/SvgLibrary";
 
-import { IconWrapper } from ".";
+import { LibraryIcon } from ".";
 
-const meta: Meta<typeof IconWrapper> = {
-  title: "App/Sidebar/Bottom/IconWrapper",
-  component: IconWrapper,
+const meta: Meta<typeof LibraryIcon> = {
+  title: "App/Sidebar/Bottom/Library/Icon",
+  component: LibraryIcon,
 };
 
 export default meta;
-type Story = StoryObj<typeof IconWrapper>;
+type Story = StoryObj<typeof LibraryIcon>;
 
 const commonArgs = {
   Icon: SvgLibrary,
@@ -18,7 +18,7 @@ const commonArgs = {
 };
 
 const generateStory = (): Story => ({
-  render: (args: any) => <IconWrapper {...args} />,
+  render: (args: any) => <LibraryIcon {...args} />,
   args: commonArgs,
 });
 

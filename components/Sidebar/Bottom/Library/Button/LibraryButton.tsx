@@ -1,4 +1,4 @@
-export const SidebarBottomButton = ({
+export const LibraryButton = ({
   type = "button",
   className,
   children,
