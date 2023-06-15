@@ -4,8 +4,8 @@ import { pageData } from "@/app/(site)/data";
 import { FeatureList } from "@/components/app/(site)/FeatureList";
 import MadeForSection from "@/components/app/(site)/MadeForSection";
 import Welcome from "@/components/app/(site)/Welcome";
-import useOnPlay from "@/hooks/useOnPlay";
-import usePlayer from "@/hooks/usePlayer";
+import useOnPlay from "@/libs/hooks/useOnPlay";
+import usePlayer from "@/libs/hooks/usePlayer";
 
 const NewPageContent = ({ songs }: any) => {
   const onPlay = useOnPlay(songs);

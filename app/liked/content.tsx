@@ -5,8 +5,8 @@ import { useEffect } from "react";
 
 import LikeButton from "@/components/(rest)/LikeButton";
 import MediaItem from "@/components/(rest)/MediaItem";
-import useOnPlay from "@/hooks/useOnPlay";
-import { useUser } from "@/hooks/useUser";
+import useOnPlay from "@/libs/hooks/useOnPlay";
+import { useUser } from "@/libs/hooks/useUser";
 import { Song } from "@/types";
 
 interface LikedContentProps {

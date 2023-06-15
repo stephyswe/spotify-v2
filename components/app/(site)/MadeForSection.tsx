@@ -3,7 +3,7 @@
 import clsx from "clsx";
 
 import MadeForItem from "@/components/app/(site)/MadeForItem";
-import { useGridResize } from "@/hooks/useGridSize";
+import { useGridResize } from "@/libs/hooks/useGridSize";
 
 const MadeForSection = ({ allItems, data: { title } }: any) => {
   return (

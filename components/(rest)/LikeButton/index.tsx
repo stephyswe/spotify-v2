@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
-import useAuthModal from "@/hooks/useAuthModal";
-import { useUser } from "@/hooks/useUser";
+import useAuthModal from "@/libs/hooks/useAuthModal";
+import { useUser } from "@/libs/hooks/useUser";
 
 import LikeButtonBase from "./LikeButtonBase";
 

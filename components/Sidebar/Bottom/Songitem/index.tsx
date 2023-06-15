@@ -1,7 +1,7 @@
 import SongItemBase from "@/components/Sidebar/Bottom/Songitem/SongItemBase";
 import SongItemContent from "@/components/Sidebar/Bottom/Songitem/SongItemContent";
-import useLoadImage from "@/hooks/useLoadImage";
-import usePlayer from "@/hooks/usePlayer";
+import useLoadImage from "@/libs/hooks/useLoadImage";
+import usePlayer from "@/libs/hooks/usePlayer";
 
 export const SidebarSongItem = ({
   onClick,

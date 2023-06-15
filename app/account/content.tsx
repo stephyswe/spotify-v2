@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import Button from "@/components/(parts)/Button";
-import useSubscribeModal from "@/hooks/useSubscribeModal";
-import { useUser } from "@/hooks/useUser";
 import { postData } from "@/libs/helpers";
+import useSubscribeModal from "@/libs/hooks/useSubscribeModal";
+import { useUser } from "@/libs/hooks/useUser";
 
 const AccountContent = () => {
   const router = useRouter();

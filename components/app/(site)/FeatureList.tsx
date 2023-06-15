@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 
 import FeatureItem from "@/components/app/(site)/FeatureItem";
-import { useFeaturedItemResize } from "@/hooks/useFeaturedItemResize";
-import usePlayer from "@/hooks/usePlayer";
+import { useFeaturedItemResize } from "@/libs/hooks/useFeaturedItemResize";
+import usePlayer from "@/libs/hooks/usePlayer";
 
 interface ItemFeatureProps {
   songs: any;

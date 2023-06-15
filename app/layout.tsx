@@ -1,14 +1,14 @@
-import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
-import getSongsByUserId from "@/actions/getSongsByUserId";
 import NewHeader from "@/components/Header";
 import Player from "@/components/Player";
 import Sidebar from "@/components/Sidebar";
 import LayoutContainer from "@/components/app/(layout)/LayoutContainer";
 import LayoutContent from "@/components/app/(layout)/LayoutContent";
-import Providers from "@/providers/Index";
+import getActiveProductsWithPrices from "@/libs/actions/getActiveProductsWithPrices";
+import getSongsByUserId from "@/libs/actions/getSongsByUserId";
+import Providers from "@/libs/providers/Index";
 
 // spotify & globals css
-import "../css";
+import "../libs/css";
 
 export const metadata = {
   title: "Spotify Clone",

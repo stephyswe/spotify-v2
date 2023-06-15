@@ -1,8 +1,8 @@
 "use client";
 
 import MediaItemBase from "@/components/(rest)/MediaItem/MediaItemBase";
-import useLoadImage from "@/hooks/useLoadImage";
-import usePlayer from "@/hooks/usePlayer";
+import useLoadImage from "@/libs/hooks/useLoadImage";
+import usePlayer from "@/libs/hooks/usePlayer";
 import { Song } from "@/types";
 
 interface MediaItemProps {

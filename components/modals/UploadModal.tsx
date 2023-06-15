@@ -10,8 +10,8 @@ import uniqid from "uniqid";
 import Button from "@/components/(parts)/Button";
 import Input from "@/components/(parts)/Input";
 import Modal from "@/components/modals/Modal";
-import useUploadModal from "@/hooks/useUploadModal";
-import { useUser } from "@/hooks/useUser";
+import useUploadModal from "@/libs/hooks/useUploadModal";
+import { useUser } from "@/libs/hooks/useUser";
 
 const UploadModal = () => {
   const [isLoading, setIsLoading] = useState(false);

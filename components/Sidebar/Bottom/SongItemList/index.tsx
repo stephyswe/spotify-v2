@@ -1,7 +1,7 @@
 import ContentBase from "@/components/Sidebar/Bottom/SongItemList/SongItemListBase";
 import { SidebarSongItem } from "@/components/Sidebar/Bottom/Songitem";
-import useOnPlay from "@/hooks/useOnPlay";
-import usePlayer from "@/hooks/usePlayer";
+import useOnPlay from "@/libs/hooks/useOnPlay";
+import usePlayer from "@/libs/hooks/usePlayer";
 
 const SongItemList = ({ songs }: any) => {
   const player = usePlayer();

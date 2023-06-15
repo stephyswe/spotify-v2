@@ -1,7 +1,7 @@
-import ModalProvider from "@/providers/ModalProvider";
-import SupabaseProvider from "@/providers/SupabaseProvider";
-import ToasterProvider from "@/providers/ToasterProvider";
-import UserProvider from "@/providers/UserProvider";
+import ModalProvider from "@/libs/providers/ModalProvider";
+import SupabaseProvider from "@/libs/providers/SupabaseProvider";
+import ToasterProvider from "@/libs/providers/ToasterProvider";
+import UserProvider from "@/libs/providers/UserProvider";
 
 const Providers = ({ children, products }: any) => (
   <>

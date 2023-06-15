@@ -5,11 +5,11 @@ import { SidebarFilter } from "@/components/Sidebar/Bottom/Filter";
 import SidebarLibrary from "@/components/Sidebar/Bottom/Library";
 import SidebarBottomBase from "@/components/Sidebar/Bottom/SidebarBottomBase";
 import SongItemList from "@/components/Sidebar/Bottom/SongItemList";
-import useAuthModal from "@/hooks/useAuthModal";
-import usePlayer from "@/hooks/usePlayer";
-import useSubscribeModal from "@/hooks/useSubscribeModal";
-import useUploadModal from "@/hooks/useUploadModal";
-import { useUser } from "@/hooks/useUser";
+import useAuthModal from "@/libs/hooks/useAuthModal";
+import usePlayer from "@/libs/hooks/usePlayer";
+import useSubscribeModal from "@/libs/hooks/useSubscribeModal";
+import useUploadModal from "@/libs/hooks/useUploadModal";
+import { useUser } from "@/libs/hooks/useUser";
 
 const SidebarBottom = ({ songs }: any) => {
   const { user, subscription } = useUser();

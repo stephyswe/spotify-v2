@@ -1,4 +1,4 @@
-import getSongs from "@/actions/getSongs";
+import getSongs from "@/libs/actions/getSongs";
 
 import NewPageContent from "./content";
 

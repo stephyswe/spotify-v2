@@ -3,15 +3,16 @@ import type { Preview } from "@storybook/react";
 import React from "react";
 
 //storybook css
-import "../css/artist.css";
-import "../css/footer.css";
+import "../libs/css/artist.css";
+import "../libs/css/footer.css";
+import "../libs/css/home-v2.css";
+import "../libs/css/spotify-more.css";
+import "../libs/css/spotify-sidebar.css";
+import "../libs/css/spotify.css";
 
 /* TODO: update import to your tailwind styles file */
-import "../css/globals.css";
-import "../css/home-v2.css";
-import "../css/spotify-more.css";
-import "../css/spotify-sidebar.css";
-import "../css/spotify.css";
+import "../libs/css/globals.css";
+
 // TODO: marker remove css
 import "./marker.css";
 

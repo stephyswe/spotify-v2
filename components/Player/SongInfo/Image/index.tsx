@@ -1,5 +1,5 @@
-import useLoadImage from "@/hooks/useLoadImage";
-import usePlayer from "@/hooks/usePlayer";
+import useLoadImage from "@/libs/hooks/useLoadImage";
+import usePlayer from "@/libs/hooks/usePlayer";
 
 export const PlayerImage = ({ data }: any) => {
   const imageUrl = useLoadImage(data);

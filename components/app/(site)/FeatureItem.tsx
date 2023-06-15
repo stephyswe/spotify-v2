@@ -4,8 +4,8 @@ import {
   SvgPagesPlay,
   SvgPagesPlayPause,
 } from "@/components/icons/pages/SvgPlay";
-import useLoadImage from "@/hooks/useLoadImage";
-import usePlayer from "@/hooks/usePlayer";
+import useLoadImage from "@/libs/hooks/useLoadImage";
+import usePlayer from "@/libs/hooks/usePlayer";
 
 const FeatureItem = ({ isPlaying, onClick, data }: any) => {
   const player = usePlayer();

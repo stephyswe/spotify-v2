@@ -11,7 +11,7 @@ import {
   SvgVolumeMedium,
 } from "@/components/icons/SvgPlaySettings";
 import { SvgPlayButton, SvgPlayPause } from "@/components/icons/SvgPlayShuffle";
-import usePlayer from "@/hooks/usePlayer";
+import usePlayer from "@/libs/hooks/usePlayer";
 import { Song } from "@/types";
 
 interface PlayerBaseProps {
