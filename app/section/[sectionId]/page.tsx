@@ -1,5 +1,5 @@
-import MadeForSection from "@/app/(site)/components/MadeForSection";
 import { pageData } from "@/app/(site)/data";
+import MadeForSection from "@/components/app/(site)/MadeForSection";
 
 export default function SectionPage() {
   return (

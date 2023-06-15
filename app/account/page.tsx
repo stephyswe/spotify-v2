@@ -1,6 +1,6 @@
-import Header from "@/components/Header";
+import Header from "@/components/(deprecated)/Header";
 
-import AccountContent from "./components/AccountContent";
+import AccountContent from "./content";
 
 const Account = () => {
   return (

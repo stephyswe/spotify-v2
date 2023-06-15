@@ -1,6 +1,6 @@
-import Hero from "@/app/artist/[artistId]/components/Hero/Hero";
-import Os from "@/app/artist/[artistId]/components/Os";
-import OsHost from "@/app/artist/[artistId]/components/OsHost";
+import Hero from "@/components/app/artist/[artistId]/Hero/Hero";
+import Os from "@/components/app/artist/[artistId]/Os";
+import OsHost from "@/components/app/artist/[artistId]/OsHost";
 
 export default function ArtistPage() {
   return (

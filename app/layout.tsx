@@ -3,12 +3,12 @@ import getSongsByUserId from "@/actions/getSongsByUserId";
 import NewHeader from "@/components/RealHeader/RealHeader";
 import SpotifyPlayer from "@/components/RealPlayer/SpotifyPlayer";
 import NewSidebar from "@/components/RealSidebar/Main";
-import LayoutContainer from "@/components/sites/LayoutContainer";
-import LayoutTemplate from "@/components/sites/LayoutTemplate";
+import LayoutContainer from "@/components/app/(layout)/LayoutContainer";
+import LayoutTemplate from "@/components/app/(layout)/LayoutTemplate";
 import Providers from "@/providers/Index";
 
 // spotify & globals css
-import "../components/sites/css";
+import "../css";
 
 export const metadata = {
   title: "Spotify Clone",

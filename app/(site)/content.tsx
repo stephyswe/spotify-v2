@@ -1,12 +1,11 @@
 "use client";
 
 import { pageData } from "@/app/(site)/data";
+import { FeatureList } from "@/components/app/(site)/FeatureList";
+import MadeForSection from "@/components/app/(site)/MadeForSection";
+import Welcome from "@/components/app/(site)/Welcome";
 import useOnPlay from "@/hooks/useOnPlay";
 import usePlayer from "@/hooks/usePlayer";
-
-import { FeatureList } from "./components/FeatureList";
-import MadeForSection from "./components/MadeForSection";
-import Welcome from "./components/Welcome";
 
 const NewPageContent = ({ songs }: any) => {
   const onPlay = useOnPlay(songs);

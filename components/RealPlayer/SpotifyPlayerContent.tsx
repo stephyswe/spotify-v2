@@ -2,21 +2,21 @@ import clsx from "clsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 import useSound from "use-sound";
 
-import { SectionOneButton } from "@/components/RealPlayer/SectionOne/SectionOneButton";
-import { SectionOneContainerText } from "@/components/RealPlayer/SectionOne/SectionOneContainerText";
-import { SectionOneSvgBox } from "@/components/RealPlayer/SectionOne/SectionOneSvgBox";
+import {
+  PlayBackDuration,
+  PlayBackPosition,
+} from "@/components/RealPlayer/Controls/PlayerBack";
+import { SectionTwoPlayerControls } from "@/components/RealPlayer/Controls/SectionTwoPlayerControls";
+import SliderTrack from "@/components/RealPlayer/Controls/SliderTrack";
 import {
   SectionThreeButton,
   SectionThreeConnect,
   SectionThreeGlueTarget,
   SectionThreeVolume,
-} from "@/components/RealPlayer/SectionThree";
-import {
-  PlayBackDuration,
-  PlayBackPosition,
-} from "@/components/RealPlayer/SectionTwo/PlayerBack";
-import { SectionTwoPlayerControls } from "@/components/RealPlayer/SectionTwo/SectionTwoPlayerControls";
-import SliderTrack from "@/components/SliderTrack";
+} from "@/components/RealPlayer/Settings/SectionThree";
+import { SectionOneButton } from "@/components/RealPlayer/SongInfo/SectionOneButton";
+import { SectionOneContainerText } from "@/components/RealPlayer/SongInfo/SectionOneContainerText";
+import { SectionOneSvgBox } from "@/components/RealPlayer/SongInfo/SectionOneSvgBox";
 import { SvgExpand } from "@/components/icons/SvgExpand";
 import {
   SvgPlayVolumeFull,
