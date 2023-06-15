@@ -1,4 +1,4 @@
-import { SidebarSearch } from "@/components/RealSidebar/Search";
+import { SidebarSearch } from "@/components/Sidebar/Search";
 
 export const SidebarContent = ({ children }: any) => (
   <>

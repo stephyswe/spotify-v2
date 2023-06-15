@@ -1,5 +1,5 @@
-import { RealButton } from "@/components/RealSidebar/Button";
-import { IconWrapper } from "@/components/RealSidebar/IconWrapper";
+import { RealButton } from "@/components/Sidebar/Button";
+import { IconWrapper } from "@/components/Sidebar/IconWrapper";
 import { SvgArrowRight } from "@/components/icons/SvgArrowRight";
 import { SvgLibrary } from "@/components/icons/SvgLibrary";
 import { SvgPlus } from "@/components/icons/SvgPlus";

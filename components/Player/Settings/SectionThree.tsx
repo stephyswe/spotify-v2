@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import SliderVolume from "@/components/RealPlayer/Settings/SliderVolume";
+import SliderVolume from "@/components/Player/Settings/SliderVolume";
 
 export const SectionThreeButton = () => (
   <button

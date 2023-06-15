@@ -1,4 +1,4 @@
-const LayoutContainer = ({ Header, Sidebar, Template, Player }: any) => (
+const LayoutContainer = ({ Header, Sidebar, Content, Player }: any) => (
   <main id="main">
     <div
       id="root"
@@ -9,7 +9,7 @@ const LayoutContainer = ({ Header, Sidebar, Template, Player }: any) => (
         {Header}
         {Sidebar}
         <div className="jEMA2gVoLgPQqAFrPhFw lPapCDz3v_LipgXwe8gi">
-          {Template}
+          {Content}
         </div>
         {Player}
       </div>

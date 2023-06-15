@@ -1,4 +1,4 @@
-import { SidebarSongItem } from "@/components/RealSidebar/RealItem";
+import { SidebarSongItem } from "@/components/Sidebar/RealItem";
 import useOnPlay from "@/hooks/useOnPlay";
 import usePlayer from "@/hooks/usePlayer";
 

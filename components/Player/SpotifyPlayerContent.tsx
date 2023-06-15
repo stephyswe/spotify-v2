@@ -5,18 +5,18 @@ import useSound from "use-sound";
 import {
   PlayBackDuration,
   PlayBackPosition,
-} from "@/components/RealPlayer/Controls/PlayerBack";
-import { SectionTwoPlayerControls } from "@/components/RealPlayer/Controls/SectionTwoPlayerControls";
-import SliderTrack from "@/components/RealPlayer/Controls/SliderTrack";
+} from "@/components/Player/Controls/PlayerBack";
+import { SectionTwoPlayerControls } from "@/components/Player/Controls/SectionTwoPlayerControls";
+import SliderTrack from "@/components/Player/Controls/SliderTrack";
 import {
   SectionThreeButton,
   SectionThreeConnect,
   SectionThreeGlueTarget,
   SectionThreeVolume,
-} from "@/components/RealPlayer/Settings/SectionThree";
-import { SectionOneButton } from "@/components/RealPlayer/SongInfo/SectionOneButton";
-import { SectionOneContainerText } from "@/components/RealPlayer/SongInfo/SectionOneContainerText";
-import { SectionOneSvgBox } from "@/components/RealPlayer/SongInfo/SectionOneSvgBox";
+} from "@/components/Player/Settings/SectionThree";
+import { SectionOneButton } from "@/components/Player/SongInfo/SectionOneButton";
+import { SectionOneContainerText } from "@/components/Player/SongInfo/SectionOneContainerText";
+import { SectionOneSvgBox } from "@/components/Player/SongInfo/SectionOneSvgBox";
 import { SvgExpand } from "@/components/icons/SvgExpand";
 import {
   SvgPlayVolumeFull,

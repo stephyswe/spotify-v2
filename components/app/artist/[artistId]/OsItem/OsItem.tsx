@@ -1,4 +1,4 @@
-import { SectionOneButton } from "@/components/RealPlayer/SongInfo/SectionOneButton";
+import { SectionOneButton } from "@/components/Player/SongInfo/SectionOneButton";
 import OsItemContainer from "@/components/app/artist/[artistId]/OsItem/Container";
 import {
   OsItemDuration,

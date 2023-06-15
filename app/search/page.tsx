@@ -1,8 +1,7 @@
 import getSongsByTitle from "@/actions/getSongsByTitle";
-import Header from "@/components/(deprecated)/Header";
+import SearchInput from "@/components/(rest)/SearchInput";
 
 import SearchContent from "./content";
-import SearchInput from "@/components/(rest)/SearchInput";
 
 export const revalidate = 0;
 
@@ -24,12 +23,11 @@ const Search = async ({ searchParams }: SearchProps) => {
         overflow-y-auto
       "
     >
-      <Header className="from-bg-neutral-900">
-        <div className="mb-2 flex flex-col gap-y-6">
-          <h1 className="text-white text-3xl font-semibold">Search</h1>
-          <SearchInput />
-        </div>
-      </Header>
+      <div className="mb-2 flex flex-col gap-y-6">
+        <h1 className="text-white text-3xl font-semibold">Search</h1>
+        <SearchInput />
+      </div>
+
       <SearchContent songs={songs} />
     </div>
   );

@@ -1,15 +1,15 @@
-import Footer from "@/components/app/(site)/Footer";
 import {
   OsScrollbar,
   OsScrollbarVertical,
-  ResizeObserver,
-} from "@/components/app/(layout)/OsLayout";
+} from "@/components/app/(layout)/OsScrollbar";
+import ResizeObserver from "@/components/app/(layout)/ResizeObserver";
+import Footer from "@/components/app/(layout)/Footer";
 
-interface LayoutTemplateProps {
+interface LayoutContentProps {
   children: React.ReactNode;
 }
 
-const LayoutTemplate: React.FC<LayoutTemplateProps> = ({ children }) => (
+const LayoutContent: React.FC<LayoutContentProps> = ({ children }) => (
   <div className="main-view-container">
     <div className="os-host os-host-foreign os-theme-spotify os-host-resize-disabled os-host-scrollbar-horizontal-hidden main-view-container__scroll-node os-host-overflow os-host-overflow-y os-host-transition">
       <ResizeObserver />
@@ -45,4 +45,4 @@ const LayoutTemplate: React.FC<LayoutTemplateProps> = ({ children }) => (
   </div>
 );
 
-export default LayoutTemplate;
+export default LayoutContent;

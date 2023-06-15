@@ -4,10 +4,10 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
-import { RealContent } from "@/components/RealSidebar/Content";
-import { SidebarFilter } from "@/components/RealSidebar/Filter";
-import { SidebarLibrary } from "@/components/RealSidebar/Library";
-import { SidebarContent } from "@/components/RealSidebar/WrapperContent";
+import { RealContent } from "@/components/Sidebar/Content";
+import { SidebarFilter } from "@/components/Sidebar/Filter";
+import { SidebarLibrary } from "@/components/Sidebar/Library";
+import { SidebarContent } from "@/components/Sidebar/WrapperContent";
 import { SvgHome, SvgHomeFilled } from "@/components/icons/SvgHome";
 import { SvgSearch, SvgSearchFilled } from "@/components/icons/SvgSearch";
 import useAuthModal from "@/hooks/useAuthModal";

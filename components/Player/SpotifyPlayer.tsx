@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import SpotifyPlayerContent from "@/components/RealPlayer/SpotifyPlayerContent";
+import SpotifyPlayerContent from "./SpotifyPlayerContent";
 import useGetSongById from "@/hooks/useGetSongById";
 import useLoadSongUrl from "@/hooks/useLoadSongUrl";
 import usePlayer from "@/hooks/usePlayer";

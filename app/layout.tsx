@@ -1,10 +1,10 @@
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 import getSongsByUserId from "@/actions/getSongsByUserId";
-import NewHeader from "@/components/RealHeader/RealHeader";
-import SpotifyPlayer from "@/components/RealPlayer/SpotifyPlayer";
-import NewSidebar from "@/components/RealSidebar/Main";
+import NewHeader from "@/components/Header/RealHeader";
+import SpotifyPlayer from "@/components/Player/SpotifyPlayer";
+import NewSidebar from "@/components/Sidebar/Main";
 import LayoutContainer from "@/components/app/(layout)/LayoutContainer";
-import LayoutTemplate from "@/components/app/(layout)/LayoutTemplate";
+import LayoutContent from "@/components/app/(layout)/LayoutContent";
 import Providers from "@/providers/Index";
 
 // spotify & globals css
@@ -36,7 +36,7 @@ export default async function RootLayout({ children }: LayoutProps) {
           <LayoutContainer
             Header={<NewHeader />}
             Sidebar={<NewSidebar songs={userSongs} />}
-            Template={<LayoutTemplate>{children}</LayoutTemplate>}
+            Content={<LayoutContent>{children}</LayoutContent>}
             Player={<SpotifyPlayer />}
           />
         </Providers>
