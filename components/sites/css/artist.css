@@ -2,12 +2,6 @@
     fill: var(--text-announcement,#0c67d3);
 }
 
-@media (min-width: 768px) {
-    .dYGhLW {
-        font-size: 6rem;
-    }
-}
-
 .dYGhLW {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -97,5 +91,9 @@
 @media (min-width: 768px) {
     .Chip__ChipComponent-sc-ry3uox-0:not([href]) > .diMang.diMang {
         font-size: 0.875rem;
+    }
+
+    .dYGhLW {
+        font-size: 6rem;
     }
 }

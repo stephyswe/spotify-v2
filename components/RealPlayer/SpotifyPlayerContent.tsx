@@ -218,7 +218,7 @@ export const SpotifyPlayerContent: React.FC<SpotifyPlayerContentProps> = ({
               </button>
             </div>
             <SectionOneContainerText song={song} />
-            <SectionOneButton />
+            <SectionOneButton mode="control" />
           </div>
         ) : null}
       </div>
