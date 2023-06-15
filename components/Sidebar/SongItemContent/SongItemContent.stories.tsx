@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SongItemContent from "@/components/Sidebar/SongItemContent";
 
 const meta: Meta<typeof SongItemContent> = {
-  title: "App/Sidebar/SongItemContent",
+  title: "App/Sidebar/SongItem/Content",
   component: SongItemContent,
 };
 

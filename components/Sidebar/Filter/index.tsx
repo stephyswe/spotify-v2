@@ -1,4 +1,4 @@
-const ButtonChip = ({ title, tabIndex }: any) => (
+export const ButtonChip = ({ title, tabIndex }: any) => (
   <button
     role="checkbox"
     aria-checked="false"
