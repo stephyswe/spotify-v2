@@ -1,4 +1,4 @@
-const TopSentinel = () => (
+const SidebarTopSentinel = () => (
   <div
     data-testid="top-sentinel"
     className="lyVkg68L7ycnwyOcO3vj"
@@ -14,7 +14,7 @@ const TopSentinel = () => (
   </div>
 );
 
-const BottomSentinel = () => (
+const SidebarBottomSentinel = () => (
   <div
     data-testid="bottom-sentinel"
     className="qnYVzttodnzg9WdrVQ1p"
@@ -30,4 +30,4 @@ const BottomSentinel = () => (
   </div>
 );
 
-export { TopSentinel, BottomSentinel };
+export { SidebarTopSentinel, SidebarBottomSentinel };

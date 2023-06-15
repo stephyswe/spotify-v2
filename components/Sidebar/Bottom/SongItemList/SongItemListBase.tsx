@@ -1,16 +1,15 @@
 import {
-  BottomSentinel,
-  TopSentinel,
-} from "@/components/Sidebar/Content/Sentinel";
+  SidebarBottomSentinel,
+  SidebarTopSentinel,
+} from "@/components/Sidebar/Bottom/SongItemList/Sentinel";
 
 const ContentBase = ({ children }: any) => (
   <>
-    <TopSentinel />
+    <SidebarTopSentinel />
     <div role="presentation" style={{ transform: "translateY(0px)" }}>
       {children}
     </div>
-
-    <BottomSentinel />
+    <SidebarBottomSentinel />
   </>
 );
 

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ButtonChip } from "./";
+import { ButtonChip } from ".";
 
 const meta: Meta<typeof ButtonChip> = {
-  title: "App/Sidebar/Filter/ButtonChip",
+  title: "App/Sidebar/Bottom/Filter/ButtonChip",
   component: ButtonChip,
 };
 
@@ -11,8 +11,8 @@ export default meta;
 type Story = StoryObj<typeof ButtonChip>;
 
 const commonArgs = {
-    title: "Playlists",
-    tabIndex: -1,
+  title: "Playlists",
+  tabIndex: -1,
 };
 
 const generateStory = (): Story => ({

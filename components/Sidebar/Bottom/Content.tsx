@@ -1,6 +1,6 @@
-import { SidebarSearch } from "@/components/Sidebar/Search";
+import { SidebarSearch } from "@/components/Sidebar/Bottom/Search";
 
-export const SidebarContent = ({ children }: any) => (
+const SidebarContent = ({ children }: any) => (
   <>
     <SidebarObserver />
     <SidebarSizeObserver />
@@ -30,6 +30,8 @@ export const SidebarContent = ({ children }: any) => (
     </div>
   </>
 );
+
+export default SidebarContent;
 
 const ContentGlue = () => (
   <div

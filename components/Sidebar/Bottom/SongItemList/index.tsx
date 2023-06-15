@@ -1,9 +1,9 @@
-import ContentBase from "@/components/Sidebar/Content/ContentBase";
-import { SidebarSongItem } from "@/components/Sidebar/Songitem";
+import ContentBase from "@/components/Sidebar/Bottom/SongItemList/SongItemListBase";
+import { SidebarSongItem } from "@/components/Sidebar/Bottom/Songitem";
 import useOnPlay from "@/hooks/useOnPlay";
 import usePlayer from "@/hooks/usePlayer";
 
-export const RealContent = ({ songs }: any) => {
+const SongItemList = ({ songs }: any) => {
   const player = usePlayer();
   const isPlaying = player.isPlaying;
   const onPlay = useOnPlay(songs);
@@ -28,3 +28,5 @@ export const RealContent = ({ songs }: any) => {
     </ContentBase>
   );
 };
+
+export default SongItemList;

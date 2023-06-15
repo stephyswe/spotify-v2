@@ -1,4 +1,4 @@
-export const RealButton = ({
+export const SidebarBottomButton = ({
   type = "button",
   className,
   children,

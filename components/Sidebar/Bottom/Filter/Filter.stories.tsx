@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SidebarFilter } from "./";
+import { SidebarFilter } from ".";
 
 const meta: Meta<typeof SidebarFilter> = {
-  title: "App/Sidebar/Filter/Filter",
+  title: "App/Sidebar/Bottom/Filter/Filter",
   component: SidebarFilter,
 };
 

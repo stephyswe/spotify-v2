@@ -1,14 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SidebarSongItem } from "@/components/Sidebar/Songitem";
-import SongItemBase from "@/components/Sidebar/Songitem/SongItemBase";
-import SongItemContent from "@/components/Sidebar/Songitem/SongItemContent";
+import SongItemBase from "@/components/Sidebar/Bottom/Songitem/SongItemBase";
 import { SongsData } from "@/libs/data/songs";
 
-import ContentBase from "./ContentBase";
+import ContentBase from "./SongItemListBase";
+import SongItemContent from "@/components/Sidebar/Bottom/Songitem/SongItemContent";
 
 const meta: Meta<typeof ContentBase> = {
-  title: "App/Sidebar/Content",
+  title: "App/Sidebar/Bottom/SongItemList",
   component: ContentBase,
 };
 

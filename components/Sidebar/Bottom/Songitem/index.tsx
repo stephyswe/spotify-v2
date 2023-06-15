@@ -1,5 +1,5 @@
-import SongItemBase from "@/components/Sidebar/Songitem/SongItemBase";
-import SongItemContent from "@/components/Sidebar/Songitem/SongItemContent";
+import SongItemBase from "@/components/Sidebar/Bottom/Songitem/SongItemBase";
+import SongItemContent from "@/components/Sidebar/Bottom/Songitem/SongItemContent";
 import useLoadImage from "@/hooks/useLoadImage";
 import usePlayer from "@/hooks/usePlayer";
 
