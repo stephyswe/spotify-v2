@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
 import SidebarBottom from "@/components/Sidebar/Bottom";
-import MainBase from "@/components/Sidebar/Main/MainBase";
+import MainBase from "@/components/Sidebar/base";
 import SidebarTop from "@/components/Sidebar/Top";
 import { SvgHome, SvgHomeFilled } from "@/components/icons/SvgHome";
 import { SvgSearch, SvgSearchFilled } from "@/components/icons/SvgSearch";

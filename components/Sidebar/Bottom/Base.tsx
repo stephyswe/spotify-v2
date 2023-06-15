@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import SidebarContent from "@/components/Sidebar/Bottom/Content";
+import SidebarContent from "@/components/Sidebar/Bottom/content";
 
 const SidebarBottomBase = ({
   Library,

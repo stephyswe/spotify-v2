@@ -2,7 +2,7 @@ import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 import getSongsByUserId from "@/actions/getSongsByUserId";
 import NewHeader from "@/components/Header/RealHeader";
 import SpotifyPlayer from "@/components/Player/SpotifyPlayer";
-import Sidebar from "@/components/Sidebar/Main";
+import Sidebar from "@/components/Sidebar";
 import LayoutContainer from "@/components/app/(layout)/LayoutContainer";
 import LayoutContent from "@/components/app/(layout)/LayoutContent";
 import Providers from "@/providers/Index";

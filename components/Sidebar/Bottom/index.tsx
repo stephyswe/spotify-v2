@@ -1,6 +1,6 @@
 "use client";
 
-import SidebarBottomBase from "@/components/Sidebar/Bottom/Base";
+import SidebarBottomBase from "@/components/Sidebar/Bottom/base";
 import ExpandedImage from "@/components/Sidebar/Bottom/ExpandedImage";
 import { SidebarFilter } from "@/components/Sidebar/Bottom/Filter";
 import SidebarLibrary from "@/components/Sidebar/Bottom/Library";
