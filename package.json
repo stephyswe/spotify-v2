@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --loglevel silent --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+    "format": "prettier --loglevel silent --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.4",
@@ -43,9 +45,18 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.21",
+    "@storybook/addon-interactions": "^7.0.21",
+    "@storybook/addon-links": "^7.0.21",
+    "@storybook/blocks": "^7.0.21",
+    "@storybook/nextjs": "^7.0.21",
+    "@storybook/react": "^7.0.21",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/uniqid": "^5.3.2",
     "encoding": "^0.1.13",
+    "eslint-plugin-storybook": "^0.6.12",
+    "storybook": "^7.0.21",
     "supabase": "^1.64.8"
   }
 }
