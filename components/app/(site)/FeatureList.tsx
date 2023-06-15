@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 import FeatureItem from "@/components/app/(site)/FeatureItem";
 import { useFeaturedItemResize } from "@/hooks/useFeaturedItemResize";
 import usePlayer from "@/hooks/usePlayer";
@@ -26,29 +28,26 @@ export const FeatureList: React.FC<ItemFeatureProps> = ({
       }}
     >
       {songs.map((song: any) => (
-        <>
+        <Fragment key={song.id}>
           <FeatureItem
-            key={song.id}
             onClick={(id: string) => togglePlay(song.id)}
             data={song}
             isActive={song.id === player.activeId}
             isPlaying={song.id === player.activeId && player.isPlaying}
           />
           <FeatureItem
-            key={song.id}
             onClick={(id: string) => togglePlay(song.id)}
             data={song}
             isActive={song.id === player.activeId}
             isPlaying={song.id === player.activeId && player.isPlaying}
           />
           <FeatureItem
-            key={song.id}
             onClick={(id: string) => togglePlay(song.id)}
             data={song}
             isActive={song.id === player.activeId}
             isPlaying={song.id === player.activeId && player.isPlaying}
           />
-        </>
+        </Fragment>
       ))}
     </div>
   );
