@@ -9,6 +9,8 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
+import LikeButtonBase from "./LikeButtonBase";
+
 interface LikeButtonProps {
   songId: string;
 }
@@ -79,16 +81,12 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
   };
 
   return (
-    <button
-      className="
-        cursor-pointer
-        hover:opacity-75
-        transition
-      "
+    <LikeButtonBase
+      songId={songId}
       onClick={handleLike}
-    >
-      <Icon color={isLiked ? "#22c55e" : "white"} size={25} />
-    </button>
+      isLiked={isLiked}
+      Icon={Icon}
+    />
   );
 };
 

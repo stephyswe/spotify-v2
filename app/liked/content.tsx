@@ -4,10 +4,10 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 import LikeButton from "@/components/(rest)/LikeButton";
+import MediaItem from "@/components/(rest)/MediaItem";
 import useOnPlay from "@/hooks/useOnPlay";
 import { useUser } from "@/hooks/useUser";
 import { Song } from "@/types";
-import MediaItem from "@/components/(rest)/MediaItem";
 
 interface LikedContentProps {
   songs: Song[];
