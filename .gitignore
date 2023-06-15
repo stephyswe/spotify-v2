@@ -36,5 +36,6 @@ next-env.d.ts
 
 # storybook
 .vercelignore
-/stories
+#/stories
 vercel.json
+/storybook-static

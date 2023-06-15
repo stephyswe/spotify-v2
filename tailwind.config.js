@@ -5,6 +5,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  // Toggle dark-mode based on data-mode="dark"
+  darkMode: ["class", '[data-mode="dark"]'],
   theme: {
     extend: {},
   },
