@@ -1,35 +1,42 @@
-import SidebarSearch from "@/components/Sidebar/Bottom/Search";
+import clsx from "clsx";
 
-const SidebarContent = ({ children }: any) => (
-  <>
-    <SidebarObserver />
-    <SidebarSizeObserver />
-    <ContentGlue />
-    <div className="os-padding">
-      <div className="os-viewport os-viewport-native-scrollbars-invisible">
-        <div
-          className="os-content"
-          style={{ padding: "0px", height: "100%", width: "100%" }}
-        >
-          <div className="ifVI2CEdOZGgMWIUN2Cw">
-            <SidebarSearch />
-            <div>
-              <ul role="list" tabIndex={0} aria-label="Your Library">
-                <div
-                  className="JUa6JJNj7R_Y3i4P8YUX"
-                  role="presentation"
-                  style={{ height: "256px", ["--row-height" as any]: "64px" }}
-                >
-                  {children}
-                </div>
-              </ul>
+const SidebarContent = ({ Search, children, isLibrary }: any) => {
+  return (
+    <>
+      <SidebarObserver />
+      <SidebarSizeObserver />
+      <ContentGlue />
+      <div className="os-padding">
+        <div className="os-viewport os-viewport-native-scrollbars-invisible">
+          <div
+            className="os-content"
+            style={{ padding: "0px", height: "100%", width: "100%" }}
+          >
+            <div
+              className={clsx(
+                "ifVI2CEdOZGgMWIUN2Cw",
+                isLibrary ? "dNphEfQzPRaQufS04jUm" : ""
+              )}
+            >
+              {Search}
+              <div>
+                <ul role="list" tabIndex={0} aria-label="Your Library">
+                  <div
+                    className="JUa6JJNj7R_Y3i4P8YUX"
+                    role="presentation"
+                    style={{ height: "256px", ["--row-height" as any]: "64px" }}
+                  >
+                    {children}
+                  </div>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
 export default SidebarContent;
 

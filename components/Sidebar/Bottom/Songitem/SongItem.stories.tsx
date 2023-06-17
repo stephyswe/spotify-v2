@@ -28,6 +28,7 @@ const generateStory = (): Story => ({
       isPlaying={false}
       isPlaylist={false}
       imageUrl={SongsData[0].imageUrl}
+      isLibrary={false}
     >
       <SongItemContent
         isActive={false}
@@ -49,6 +50,7 @@ export const HoverCheckColor = {
       isPlaying={false}
       isPlaylist={false}
       imageUrl={SongsData[0].imageUrl}
+      isLibrary={false}
     >
       <SongItemContent
         isActive={false}

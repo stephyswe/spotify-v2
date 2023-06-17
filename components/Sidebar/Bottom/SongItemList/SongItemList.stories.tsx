@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import SongItemBase from "@/components/Sidebar/Bottom/Songitem/SongItemBase";
+import SongItemContent from "@/components/Sidebar/Bottom/Songitem/SongItemContent";
 import { SongsData } from "@/libs/data/songs";
 
 import ContentBase from "./SongItemListBase";
-import SongItemContent from "@/components/Sidebar/Bottom/Songitem/SongItemContent";
 
 const meta: Meta<typeof ContentBase> = {
   title: "App/Sidebar/Bottom/SongItemList",
@@ -28,6 +28,7 @@ const generateStory = (): Story => ({
           isPlaying={song.id === 0 && false}
           isPlaylist={false}
           imageUrl={song.imageUrl}
+          isLibrary={false}
         >
           <SongItemContent
             isActive={false}

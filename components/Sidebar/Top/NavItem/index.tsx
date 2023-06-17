@@ -6,6 +6,7 @@ interface NavItemProps {
   iconFilled: any;
   active: boolean;
   href: string;
+  isLibrary: boolean;
 }
 
 const NavItem = ({
@@ -14,7 +15,8 @@ const NavItem = ({
   iconFilled: IconFilled,
   active,
   href,
-}: any) => (
+  isLibrary,
+}: NavItemProps) => (
   <li className="LU0q0itTx2613uiATSig InvalidDropTarget">
     <a
       draggable="false"
@@ -28,12 +30,14 @@ const NavItem = ({
       aria-current="page"
     >
       {active ? <IconFilled /> : <Icon />}
-      <span
-        data-encore-id="type"
-        className="Type__TypeElement-sc-goli3j-0 bkjCej"
-      >
-        {label}
-      </span>
+      {isLibrary ? null : (
+        <span
+          data-encore-id="type"
+          className="Type__TypeElement-sc-goli3j-0 bkjCej"
+        >
+          {label}
+        </span>
+      )}
     </a>
   </li>
 );
