@@ -1,6 +1,9 @@
 import clsx from "clsx";
 
-const SidebarContent = ({ Search, children, isLibrary }: any) => {
+import useSidebar from "@/libs/hooks/useSidebar";
+
+const SidebarContent = ({ Search, children }: any) => {
+  const { isLibrary } = useSidebar();
   return (
     <>
       <SidebarObserver />

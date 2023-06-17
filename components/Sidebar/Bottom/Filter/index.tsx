@@ -1,3 +1,5 @@
+import useSidebar from "@/libs/hooks/useSidebar";
+
 export const ButtonChip = ({ title, tabIndex }: any) => (
   <button
     role="checkbox"
@@ -13,20 +15,24 @@ export const ButtonChip = ({ title, tabIndex }: any) => (
   </button>
 );
 
-export const SidebarFilter = () => (
-  <div className="wBsWS202aGdsul2kEGUf">
-    <div className="bMurPtRDRv5LuN78MTVG MLbFLVC33caOj3FgSQMC">
-      <div
-        className="KjPUGV8uMbl_0bvk9ePv"
-        role="list"
-        aria-label="Filter options"
-        tabIndex={0}
-      >
-        <div role="presentation">
-          <ButtonChip tabIndex={-1} title="Playlists" />
-          <ButtonChip tabIndex={0} title="Artists" />
+export const SidebarFilter = () => {
+  const { isLibrary } = useSidebar();
+  if (isLibrary) return null;
+  return (
+    <div className="wBsWS202aGdsul2kEGUf">
+      <div className="bMurPtRDRv5LuN78MTVG MLbFLVC33caOj3FgSQMC">
+        <div
+          className="KjPUGV8uMbl_0bvk9ePv"
+          role="list"
+          aria-label="Filter options"
+          tabIndex={0}
+        >
+          <div role="presentation">
+            <ButtonChip tabIndex={-1} title="Playlists" />
+            <ButtonChip tabIndex={0} title="Artists" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};

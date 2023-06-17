@@ -28,7 +28,6 @@ const generateStory = (): Story => ({
           isPlaying={song.id === 0 && false}
           isPlaylist={false}
           imageUrl={song.imageUrl}
-          isLibrary={false}
         >
           <SongItemContent
             isActive={false}

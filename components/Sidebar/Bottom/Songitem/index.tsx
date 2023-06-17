@@ -9,7 +9,6 @@ export const SidebarSongItem = ({
   isPlaying,
   data,
   type = "Artist",
-  isLibrary,
 }: any) => {
   const isPlaylist = type === "playlist";
   const imageUrl = useLoadImage(data);
@@ -27,16 +26,13 @@ export const SidebarSongItem = ({
       isPlaying={isPlaying}
       isPlaylist={isPlaylist}
       imageUrl={imageUrl || ""}
-      isLibrary={isLibrary}
     >
-      {isLibrary ? null : (
-        <SongItemContent
-          type="Artist"
-          data={data}
-          isActive={isActive}
-          isPlaying={isPlaying}
-        />
-      )}
+      <SongItemContent
+        type="Artist"
+        data={data}
+        isActive={isActive}
+        isPlaying={isPlaying}
+      />
     </SongItemBase>
   );
 };

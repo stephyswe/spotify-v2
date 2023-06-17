@@ -15,11 +15,9 @@ import { useUser } from "@/libs/hooks/useUser";
 
 interface SidebarBottomProps {
   songs: any;
-  isLibrary: boolean;
-  onLibrary: () => void;
 }
 
-const SidebarBottom = ({ songs, isLibrary, onLibrary }: SidebarBottomProps) => {
+const SidebarBottom = ({ songs }: SidebarBottomProps) => {
   const { user, subscription } = useUser();
   const uploadModal = useUploadModal();
   const authModal = useAuthModal();
@@ -43,25 +41,14 @@ const SidebarBottom = ({ songs, isLibrary, onLibrary }: SidebarBottomProps) => {
 
   return (
     <SidebarBottomBase
-      Library={
-        <SidebarLibrary
-          onClickPlus={onClickPlus}
-          onLibrary={onLibrary}
-          isLibrary={isLibrary}
-        />
-      }
-      Filter={isLibrary ? null : <SidebarFilter />}
+      Library={<SidebarLibrary onClickPlus={onClickPlus} />}
+      Filter={<SidebarFilter />}
       SongList={
-        <SidebarContent
-          isLibrary={isLibrary}
-          Search={isLibrary ? null : <SidebarSearch />}
-        >
-          <SongItemList songs={songs} isLibrary={isLibrary} />
+        <SidebarContent Search={<SidebarSearch />}>
+          <SongItemList songs={songs} />
         </SidebarContent>
       }
-      ExpandedImage={isPicture ? <ExpandedImage onPicture={onPicture} /> : null}
-      isPicture={isPicture}
-      isLibrary={isLibrary}
+      ExpandedImage={<ExpandedImage onPicture={onPicture} />}
     />
   );
 };

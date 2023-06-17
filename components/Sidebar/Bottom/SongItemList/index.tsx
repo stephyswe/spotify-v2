@@ -3,7 +3,7 @@ import { SidebarSongItem } from "@/components/Sidebar/Bottom/Songitem";
 import useOnPlay from "@/libs/hooks/useOnPlay";
 import usePlayer from "@/libs/hooks/usePlayer";
 
-const SongItemList = ({ songs, isLibrary }: any) => {
+const SongItemList = ({ songs }: any) => {
   const player = usePlayer();
   const isPlaying = player.isPlaying;
   const onPlay = useOnPlay(songs);
@@ -23,7 +23,6 @@ const SongItemList = ({ songs, isLibrary }: any) => {
           data={song}
           isActive={song.id === player.activeId}
           isPlaying={song.id === player.activeId && player.isPlaying}
-          isLibrary={isLibrary}
         />
       ))}
     </ContentBase>

@@ -30,6 +30,9 @@ export default async function RootLayout({ children }: LayoutProps) {
       lang="en"
       dir="ltr"
       className="no-focus-outline spotify__os--is-windows spotify__container--is-web"
+      /* style={{
+        ["--left-sidebar-width: " as any]: "280px",
+      }} */
     >
       <body className="ylx">
         <Providers products={products}>

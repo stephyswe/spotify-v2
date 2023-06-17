@@ -12,7 +12,7 @@ export default meta;
 type Story = StoryObj<typeof SidebarLibrary>;
 
 const commonArgs = {
-  onClick: () => {},
+  onClickPlus: () => {},
 };
 
 const generateStory = (): Story => ({
