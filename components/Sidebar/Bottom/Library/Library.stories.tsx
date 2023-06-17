@@ -5,6 +5,7 @@ import SidebarLibrary from "@/components/Sidebar/Bottom/Library";
 const meta: Meta<typeof SidebarLibrary> = {
   title: "App/Sidebar/Bottom/Library",
   component: SidebarLibrary,
+  tags: ["autodocs"],
 };
 
 export default meta;

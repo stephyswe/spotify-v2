@@ -5,6 +5,7 @@ import { SidebarFilter } from ".";
 const meta: Meta<typeof SidebarFilter> = {
   title: "App/Sidebar/Bottom/Filter/Filter",
   component: SidebarFilter,
+  tags: ["autodocs"],
 };
 
 export default meta;

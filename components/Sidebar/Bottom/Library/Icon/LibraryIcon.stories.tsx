@@ -7,6 +7,7 @@ import { LibraryIcon } from ".";
 const meta: Meta<typeof LibraryIcon> = {
   title: "App/Sidebar/Bottom/Library/Icon",
   component: LibraryIcon,
+  tags: ["autodocs"],
 };
 
 export default meta;

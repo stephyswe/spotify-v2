@@ -5,6 +5,8 @@ import { ButtonChip } from ".";
 const meta: Meta<typeof ButtonChip> = {
   title: "App/Sidebar/Bottom/Filter/ButtonChip",
   component: ButtonChip,
+  tags: ["autodocs"],
+
 };
 
 export default meta;

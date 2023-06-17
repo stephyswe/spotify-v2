@@ -10,6 +10,7 @@ import { LibraryButton } from "./LibraryButton";
 const meta: Meta<typeof LibraryButton> = {
   title: "App/Sidebar/Bottom/Library/Button",
   component: LibraryButton,
+  tags: ["autodocs"],
 };
 
 export default meta;
