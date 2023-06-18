@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ExpandedImage from ".";
 
 const meta: Meta<typeof ExpandedImage> = {
-  title: "App/Sidebar/Bottom/ExpandedImage",
   component: ExpandedImage,
 };
 

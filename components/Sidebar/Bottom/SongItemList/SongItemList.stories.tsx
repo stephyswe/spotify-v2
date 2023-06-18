@@ -7,7 +7,6 @@ import { SongsData } from "@/libs/data/songs";
 import ContentBase from "./SongItemListBase";
 
 const meta: Meta<typeof ContentBase> = {
-  title: "App/Sidebar/Bottom/SongItemList",
   component: ContentBase,
 };
 

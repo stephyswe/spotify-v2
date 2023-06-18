@@ -6,7 +6,6 @@ import { SvgSearch } from "@/components/icons/SvgSearch";
 import NavItem from ".";
 
 const meta: Meta<typeof NavItem> = {
-  title: "App/Sidebar/Top/NavItem",
   component: NavItem,
 };
 

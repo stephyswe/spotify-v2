@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SidebarLibrary from "@/components/Sidebar/Bottom/Library";
 
 const meta: Meta<typeof SidebarLibrary> = {
-  title: "App/Sidebar/Bottom/Library",
   component: SidebarLibrary,
   tags: ["autodocs"],
 };

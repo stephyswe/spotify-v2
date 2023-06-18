@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Search from ".";
 
 const meta: Meta<typeof Search> = {
-  title: "App/Sidebar/Bottom/Search",
   component: Search,
   tags: ["autodocs"],
 };

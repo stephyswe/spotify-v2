@@ -5,7 +5,6 @@ import { SvgLibrary } from "@/components/icons/SvgLibrary";
 import { LibraryIcon } from ".";
 
 const meta: Meta<typeof LibraryIcon> = {
-  title: "App/Sidebar/Bottom/Library/Icon",
   component: LibraryIcon,
   tags: ["autodocs"],
 };

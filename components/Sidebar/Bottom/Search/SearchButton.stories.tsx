@@ -5,7 +5,6 @@ import { userEvent, within } from "@storybook/testing-library";
 import SearchButton from "./SearchButton";
 
 const meta: Meta<typeof SearchButton> = {
-  title: "App/Sidebar/Bottom/Search/Button",
   component: SearchButton,
 };
 

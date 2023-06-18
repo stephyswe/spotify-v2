@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import SearchDropdown from "./SearchDropdown";
 
 const meta: Meta<typeof SearchDropdown> = {
-  title: "App/Sidebar/Bottom/Search/Dropdown",
   component: SearchDropdown,
 };
 
