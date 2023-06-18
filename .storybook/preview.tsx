@@ -5,19 +5,27 @@ import React from "react";
 //storybook css
 import "../libs/css/artist.css";
 import "../libs/css/footer.css";
+
+/* TODO: update import to your tailwind styles file */
+import "../libs/css/globals.css";
 import "../libs/css/home-v2.css";
 import "../libs/css/spotify-more.css";
 import "../libs/css/spotify-sidebar.css";
 import "../libs/css/spotify.css";
-
-/* TODO: update import to your tailwind styles file */
-import "../libs/css/globals.css";
-
+import Providers from "../libs/providers/Index";
 // TODO: marker remove css
 import "./marker.css";
 
 const preview: Preview = {
   parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
+    options: {
+      storySort: {
+        order: ["App", ["Sidebar"], "*"],
+      },
+    },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
@@ -29,15 +37,25 @@ const preview: Preview = {
 
   decorators: [
     (Story) => (
-      <main id="main">
-        <div
-          id="root"
-          className="Root encore-dark-theme nav-ylx"
-          style={{ ["--panel-gap" as any]: "8px" }}
-        >
-          <Story />
-        </div>
-      </main>
+      <html
+        lang="en"
+        dir="ltr"
+        className="no-focus-outline spotify__os--is-windows spotify__container--is-web"
+      >
+        <body className="ylx">
+          <main id="main">
+            <div
+              id="root"
+              className="Root encore-dark-theme nav-ylx"
+              style={{ ["--panel-gap" as any]: "8px" }}
+            >
+              <Providers products={[]}>
+                <Story />
+              </Providers>
+            </div>
+          </main>
+        </body>
+      </html>
     ),
     // Adds theme switching support.
     // NOTE: requires setting "darkMode" to "class" in your tailwind config
